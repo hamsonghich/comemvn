@@ -1,0 +1,934 @@
+{
+  "data-all": [
+    {
+      "name": "Sale",
+      "link": "khuyen-mai-va-combo",
+      "list": [
+        {
+          "name": "Combo chăm sóc da",
+          "link": "combo-cham-soc-da",
+          "products": [
+            {
+              "name": "Combo Firstdate Taptap - Chăm sóc da mụn cám, mụn đầu đen",
+              "link": "combo-first-date-taptap",
+              "images": [
+                {
+                  "name": "combo-first-date-taptap",
+                  "link": "https://static.comem.vn/uploads/March2023/combo-first-date-taptap_sp2x.png"
+                },
+                {
+                  "name": "combo-first-date-tap-tap_m",
+                  "link": "https://static.comem.vn/uploads/June2022/combo-first-date-tap-tap_m.jpg"
+                },
+                {
+                  "name": "dau-rua-mat-3s-combo-first-date_m",
+                  "link": "https://static.comem.vn/uploads/June2022/dau-rua-mat-3s-combo-first-date_m.jpg"
+                },
+                {
+                  "name": "bot-rua-mat-tap-tap-co-mem_100",
+                  "link": "https://static.comem.vn/uploads/June2022/bot-rua-mat-tap-tap-co-mem_100_m.jpg"
+                }
+              ],
+              "price-old": 620000,
+              "discount": 6,
+              "tag-description": "New",
+              "star": 4.9,
+              "rate": 191,
+              "contents": [
+                {
+                  "text": "Bột ngũ cốc tự nhiên Tẩy tế bào chết nhẹ nhàng, loại bỏ mụn cám, mụn đầu đen",
+                  "icon": "✨"
+                },
+                {
+                  "text": "4 bước Chăm sóc da đơn giản, hiệu quả",
+                  "icon": "\uD83D\uDC96"
+                },
+                {
+                  "text": "Bổ sung 7 loại dầu dưỡng quý, dưỡng da chuyên sâu",
+                  "icon": "✨"
+                },
+                {
+                  "text": "An toàn Cho da nhạy cảm, mẹ bầu, mẹ bỉm sữa, trẻ dậy thì",
+                  "icon": "\uD83C\uDF40"
+                }
+              ],
+              "promotion": [
+                {
+                  "title": "Quà tặng",
+                  "text": "Mua 2 chai Nước súc miệng Tặng 1 Xịt thơm miệng"
+                },
+                {
+                  "title": "Mua 4 Tặng 1",
+                  "text": "Sản phẩm có giá trị thấp nhất"
+                },
+                {
+                  "title": "Giảm 25k",
+                  "text": "Khi mua đơn hàng bất kì có Bọt vệ sinh Mây Hồng"
+                },
+                {
+                  "title": "Giảm 20%",
+                  "text": "Kem chống nắng Thiên nhiên khi mua trên website"
+                }
+              ],
+              "info": [
+                {
+                  "block-text1": "Combo chăm sóc da LÀM SÁNG, GIẢM MỤN ĐẦU ĐEN giúp làm sạch sâu và cung cấp các dưỡng chất cần thiết cho da, đồng thời giúp giảm tình trạng mụn cám, mụn đầu đen, se khít lỗ chân lông, giảm thâm nám giúp làn da sáng hồng hơn.",
+                  "block-text2": "Với nguyên tắc tối giản chỉ 4 bước, bộ chăm sóc da của Cỏ Mềm rất thích hợp các nàng mới tập tành dưỡng da hoặc các nàng... \"lười\" mà vẫn muốn da được làm sạch và cung cấp đầy đủ dưỡng chất",
+                  "block-text3": "Với 4 bước tinh giản như đầy đủ:",
+                  "block-text4": "",
+                  "step": [
+                    "Bước 1- Tẩy trang",
+                    "Bước 2- Tẩy trang",
+                    "Bước 3- Tẩy trang",
+                    "Bước 4- Tẩy trang"
+                  ],
+                  "watch-detail": {
+                    "name": "Xem chi tiết về từng sản phẩm trong combo: ",
+                    "list": [
+                      {
+                        "name": "Dầu tẩy trang 3S",
+                        "link": "dau-rua-mat-3s"
+                      },    {
+                        "name": "Bột rửa mặt thảo mộc Taptap",
+                        "link": "bot-rua-mat-taptap"
+                      },    {
+                        "name": "Toner",
+                        "link": "toner-xit-khoang"
+                      },    {
+                        "name": "Serum dưỡng da Hoàng Lan",
+                        "link": "serum-hoang-lan"
+                      }
+                    ]
+                  }
+
+                }
+
+              ]
+            },
+            {
+              "name": "Combo Firstdate Tràm Trà - Chăm Sóc Da Mụn Bọc, Mụn Viêm",
+              "link": "combo-first-date-tram-tra",
+              "images": [
+                {
+                  "name": "combo-first-date-tram-tra",
+                  "link": "https://static.comem.vn/uploads/March2023/combo-first-date-tram-tra_sp2x.png"
+                },
+                {
+                  "name": "combo-first-date-tram-tra",
+                  "link": "https://static.comem.vn/uploads/November2022/combo-first-date-tram-tra_sp2x.png"
+                },
+                {
+                  "name": "combo-first-date-tram-tra",
+                  "link": "https://static.comem.vn/uploads/June2022/dau-rua-mat-3s-combo-first-date_16_sp2x.jpg"
+                },
+                {
+                  "name": "combo-first-date-tram-tra",
+                  "link": "https://static.comem.vn/uploads/June2022/serum-dem-hoang-lan_16_sp2x.jpg"
+                }
+              ],
+              "price-old": 620000,
+              "discount": 6,
+              "tag-description": "Best seller",
+              "star": 4.9,
+              "rate": 191,
+              "contents": [
+                {
+                  "text": "Bột ngũ cốc tự nhiên Tẩy tế bào chết nhẹ nhàng, loại bỏ mụn cám, mụn đầu đen",
+                  "icon": "✨"
+                },
+                {
+                  "text": "4 bước Chăm sóc da đơn giản, hiệu quả",
+                  "icon": "\uD83D\uDC96"
+                },
+                {
+                  "text": "Bổ sung 7 loại dầu dưỡng quý, dưỡng da chuyên sâu",
+                  "icon": "✨"
+                },
+                {
+                  "text": "An toàn Cho da nhạy cảm, mẹ bầu, mẹ bỉm sữa, trẻ dậy thì",
+                  "icon": "\uD83C\uDF40"
+                }
+              ],
+              "promotion": [
+                {
+                  "title": "Quà tặng",
+                  "text": "Mua 2 chai Nước súc miệng Tặng 1 Xịt thơm miệng"
+                },
+                {
+                  "title": "Mua 4 Tặng 1",
+                  "text": "Sản phẩm có giá trị thấp nhất"
+                },
+                {
+                  "title": "Giảm 25k",
+                  "text": "Khi mua đơn hàng bất kì có Bọt vệ sinh Mây Hồng"
+                },
+                {
+                  "title": "Giảm 20%",
+                  "text": "Kem chống nắng Thiên nhiên khi mua trên website"
+                }
+              ],
+              "info": [
+                {
+                  "block-text1": "Combo chăm sóc da LÀM SÁNG, GIẢM MỤN ĐẦU ĐEN giúp làm sạch sâu và cung cấp các dưỡng chất cần thiết cho da, đồng thời giúp giảm tình trạng mụn cám, mụn đầu đen, se khít lỗ chân lông, giảm thâm nám giúp làn da sáng hồng hơn.",
+                  "block-text2": "Với nguyên tắc tối giản chỉ 4 bước, bộ chăm sóc da của Cỏ Mềm rất thích hợp các nàng mới tập tành dưỡng da hoặc các nàng... \"lười\" mà vẫn muốn da được làm sạch và cung cấp đầy đủ dưỡng chất",
+                  "block-text3": "Với 4 bước tinh giản như đầy đủ:",
+                  "block-text4": "",
+                  "step": [
+                    "Bước 1- Tẩy trang",
+                    "Bước 2- Tẩy trang",
+                    "Bước 3- Tẩy trang",
+                    "Bước 4- Tẩy trang"
+                  ],
+                  "watch-detail": {
+                    "name": "Xem chi tiết về từng sản phẩm trong combo: ",
+                    "list": [
+                      {
+                        "name": "Dầu tẩy trang 3S",
+                        "link": "dau-rua-mat-3s"
+                      },    {
+                        "name": "Bột rửa mặt thảo mộc Taptap",
+                        "link": "bot-rua-mat-taptap"
+                      },    {
+                        "name": "Toner",
+                        "link": "toner-xit-khoang"
+                      },    {
+                        "name": "Serum dưỡng da Hoàng Lan",
+                        "link": "serum-hoang-lan"
+                      }
+                    ]
+                  }
+
+                }
+
+              ]
+            },
+            {
+              "name": "Bộ Chăm Sóc Da Tơ Tằm - Dưỡng Ẩm, Ngừa Lão Hoá Chuyên Sâu 3 Bước",
+              "link": "bo-cham-soc-da-to-tam",
+              "images": [
+                {
+                  "name": "bo-cham-soc-da-to-tam",
+                  "link": "https://static.comem.vn/uploads/November2022/bo-cham-soc-da-co-ban-to-tam_sp2x.jpg"
+                },
+                {
+                  "name": "bo-cham-soc-da-to-tam",
+                  "link": "https://static.comem.vn/uploads/February2022/16_6_sp2x.jpg"
+                },
+                {
+                  "name": "bo-cham-soc-da-to-tam",
+                  "link": "https://static.comem.vn/uploads/February2022/15_10_sp2x.jpg"
+                },
+                {
+                  "name": "bo-cham-soc-da-to-tam",
+                  "link": "https://static.comem.vn/uploads/February2022/21_sp2x.jpg"
+                }
+              ],
+              "price-old": 620000,
+              "discount": 6,
+              "star": 4.9,
+              "rate": 191,
+              "contents": [
+                {
+                  "text": "Bột ngũ cốc tự nhiên Tẩy tế bào chết nhẹ nhàng, loại bỏ mụn cám, mụn đầu đen",
+                  "icon": "✨"
+                },
+                {
+                  "text": "4 bước Chăm sóc da đơn giản, hiệu quả",
+                  "icon": "\uD83D\uDC96"
+                },
+                {
+                  "text": "Bổ sung 7 loại dầu dưỡng quý, dưỡng da chuyên sâu",
+                  "icon": "✨"
+                },
+                {
+                  "text": "An toàn Cho da nhạy cảm, mẹ bầu, mẹ bỉm sữa, trẻ dậy thì",
+                  "icon": "\uD83C\uDF40"
+                }
+              ],
+              "promotion": [
+                {
+                  "title": "Quà tặng",
+                  "text": "Mua 2 chai Nước súc miệng Tặng 1 Xịt thơm miệng"
+                },
+                {
+                  "title": "Mua 4 Tặng 1",
+                  "text": "Sản phẩm có giá trị thấp nhất"
+                },
+                {
+                  "title": "Giảm 25k",
+                  "text": "Khi mua đơn hàng bất kì có Bọt vệ sinh Mây Hồng"
+                },
+                {
+                  "title": "Giảm 20%",
+                  "text": "Kem chống nắng Thiên nhiên khi mua trên website"
+                }
+              ],
+              "info": [
+                {
+                  "block-text1": "Combo chăm sóc da LÀM SÁNG, GIẢM MỤN ĐẦU ĐEN giúp làm sạch sâu và cung cấp các dưỡng chất cần thiết cho da, đồng thời giúp giảm tình trạng mụn cám, mụn đầu đen, se khít lỗ chân lông, giảm thâm nám giúp làn da sáng hồng hơn.",
+                  "block-text2": "Với nguyên tắc tối giản chỉ 4 bước, bộ chăm sóc da của Cỏ Mềm rất thích hợp các nàng mới tập tành dưỡng da hoặc các nàng... \"lười\" mà vẫn muốn da được làm sạch và cung cấp đầy đủ dưỡng chất",
+                  "block-text3": "Với 4 bước tinh giản như đầy đủ:",
+                  "block-text4": "",
+                  "step": [
+                    "Bước 1- Tẩy trang",
+                    "Bước 2- Tẩy trang",
+                    "Bước 3- Tẩy trang",
+                    "Bước 4- Tẩy trang"
+                  ],
+                  "watch-detail": {
+                    "name": "Xem chi tiết về từng sản phẩm trong combo: ",
+                    "list": [
+                      {
+                        "name": "Dầu tẩy trang 3S",
+                        "link": "dau-rua-mat-3s"
+                      },    {
+                        "name": "Bột rửa mặt thảo mộc Taptap",
+                        "link": "bot-rua-mat-taptap"
+                      },    {
+                        "name": "Toner",
+                        "link": "toner-xit-khoang"
+                      },    {
+                        "name": "Serum dưỡng da Hoàng Lan",
+                        "link": "serum-hoang-lan"
+                      }
+                    ]
+                  }
+
+                }
+
+              ]
+            },
+            {
+              "name": "Combo Chăm Sóc Da BAN NGÀY (Bọt Rửa Mặt, Toner, Kem Dưỡng Da, Kem Chống Nắng)",
+              "link": "combo-cham-soc-da-ban-ngay",
+              "images": [
+                {
+                  "name": "combo-cham-soc-da-ban-ngay",
+                  "link": "https://static.comem.vn/uploads/December2022/combo-cham-soc-da-ban-ngay_sp2x.jpg"
+                },
+                {
+                  "name": "combo-cham-soc-da-ban-ngay",
+                  "link": "https://static.comem.vn/uploads/June2022/combo-bo-trang-diem-ban-ngay_sp2x.jpg"
+                },
+                {
+                  "name": "combo-cham-soc-da-ban-ngay",
+                  "link": "https://static.comem.vn/uploads/February2022/21_82_sp2x.jpg"
+                },
+                {
+                  "name": "combo-cham-soc-da-ban-ngay",
+                  "link": "https://static.comem.vn/uploads/February2022/13_32_sp2x.jpg"
+                }
+              ],
+              "price-old": 620000,
+              "discount": 6,
+              "star": 4.9,
+              "rate": 191,
+              "contents": [
+                {
+                  "text": "Bột ngũ cốc tự nhiên Tẩy tế bào chết nhẹ nhàng, loại bỏ mụn cám, mụn đầu đen",
+                  "icon": "✨"
+                },
+                {
+                  "text": "4 bước Chăm sóc da đơn giản, hiệu quả",
+                  "icon": "\uD83D\uDC96"
+                },
+                {
+                  "text": "Bổ sung 7 loại dầu dưỡng quý, dưỡng da chuyên sâu",
+                  "icon": "✨"
+                },
+                {
+                  "text": "An toàn Cho da nhạy cảm, mẹ bầu, mẹ bỉm sữa, trẻ dậy thì",
+                  "icon": "\uD83C\uDF40"
+                }
+              ],
+              "promotion": [
+                {
+                  "title": "Quà tặng",
+                  "text": "Mua 2 chai Nước súc miệng Tặng 1 Xịt thơm miệng"
+                },
+                {
+                  "title": "Mua 4 Tặng 1",
+                  "text": "Sản phẩm có giá trị thấp nhất"
+                },
+                {
+                  "title": "Giảm 25k",
+                  "text": "Khi mua đơn hàng bất kì có Bọt vệ sinh Mây Hồng"
+                },
+                {
+                  "title": "Giảm 20%",
+                  "text": "Kem chống nắng Thiên nhiên khi mua trên website"
+                }
+              ],
+              "info": [
+                {
+                  "block-text1": "Combo chăm sóc da LÀM SÁNG, GIẢM MỤN ĐẦU ĐEN giúp làm sạch sâu và cung cấp các dưỡng chất cần thiết cho da, đồng thời giúp giảm tình trạng mụn cám, mụn đầu đen, se khít lỗ chân lông, giảm thâm nám giúp làn da sáng hồng hơn.",
+                  "block-text2": "Với nguyên tắc tối giản chỉ 4 bước, bộ chăm sóc da của Cỏ Mềm rất thích hợp các nàng mới tập tành dưỡng da hoặc các nàng... \"lười\" mà vẫn muốn da được làm sạch và cung cấp đầy đủ dưỡng chất",
+                  "block-text3": "Với 4 bước tinh giản như đầy đủ:",
+                  "block-text4": "",
+                  "step": [
+                    "Bước 1- Tẩy trang",
+                    "Bước 2- Tẩy trang",
+                    "Bước 3- Tẩy trang",
+                    "Bước 4- Tẩy trang"
+                  ],
+                  "watch-detail": {
+                    "name": "Xem chi tiết về từng sản phẩm trong combo: ",
+                    "list": [
+                      {
+                        "name": "Dầu tẩy trang 3S",
+                        "link": "dau-rua-mat-3s"
+                      },    {
+                        "name": "Bột rửa mặt thảo mộc Taptap",
+                        "link": "bot-rua-mat-taptap"
+                      },    {
+                        "name": "Toner",
+                        "link": "toner-xit-khoang"
+                      },    {
+                        "name": "Serum dưỡng da Hoàng Lan",
+                        "link": "serum-hoang-lan"
+                      }
+                    ]
+                  }
+
+                }
+
+              ]
+            },
+            {
+              "name": "Combo Rửa Mặt Sạch Sâu - Double Cleansing Từ Thiên Nhiên",
+              "link": "combo-rua-mat-sach-sau-double-cleansing-tu-thien-nhien",
+              "images": [
+                {
+                  "name": "combo-rua-mat-sach-sau",
+                  "link": "https://static.comem.vn/uploads/March2023/combo-rua-mat-sach-sau-tap-tap_sp2x.png"
+                },
+                {
+                  "name": "combo-rua-mat-sach-sau",
+                  "link": "https://static.comem.vn/uploads/March2023/combo-rua-mat-sach-sau-gac-nghe_sp2x.png"
+                },
+                {
+                  "name": "combo-rua-mat-sach-sau",
+                  "link": "https://static.comem.vn/uploads/March2023/combo-rua-mat-sach-sau-tram-tra_sp2x.png"
+                },
+                {
+                  "name": "combo-rua-mat-sach-sau",
+                  "link": "https://static.comem.vn/uploads/May2022/bot-rua-mat-tap-tap_80_sp2x.jpg"
+                }
+              ],
+              "price-old": 620000,
+              "discount": 6,
+              "star": 4.9,
+              "rate": 191,
+              "contents": [
+                {
+                  "text": "Bột ngũ cốc tự nhiên Tẩy tế bào chết nhẹ nhàng, loại bỏ mụn cám, mụn đầu đen",
+                  "icon": "✨"
+                },
+                {
+                  "text": "4 bước Chăm sóc da đơn giản, hiệu quả",
+                  "icon": "\uD83D\uDC96"
+                },
+                {
+                  "text": "Bổ sung 7 loại dầu dưỡng quý, dưỡng da chuyên sâu",
+                  "icon": "✨"
+                },
+                {
+                  "text": "An toàn Cho da nhạy cảm, mẹ bầu, mẹ bỉm sữa, trẻ dậy thì",
+                  "icon": "\uD83C\uDF40"
+                }
+              ],
+              "promotion": [
+                {
+                  "title": "Quà tặng",
+                  "text": "Mua 2 chai Nước súc miệng Tặng 1 Xịt thơm miệng"
+                },
+                {
+                  "title": "Mua 4 Tặng 1",
+                  "text": "Sản phẩm có giá trị thấp nhất"
+                },
+                {
+                  "title": "Giảm 25k",
+                  "text": "Khi mua đơn hàng bất kì có Bọt vệ sinh Mây Hồng"
+                },
+                {
+                  "title": "Giảm 20%",
+                  "text": "Kem chống nắng Thiên nhiên khi mua trên website"
+                }
+              ],
+              "info": [
+                {
+                  "block-text1": "Combo chăm sóc da LÀM SÁNG, GIẢM MỤN ĐẦU ĐEN giúp làm sạch sâu và cung cấp các dưỡng chất cần thiết cho da, đồng thời giúp giảm tình trạng mụn cám, mụn đầu đen, se khít lỗ chân lông, giảm thâm nám giúp làn da sáng hồng hơn.",
+                  "block-text2": "Với nguyên tắc tối giản chỉ 4 bước, bộ chăm sóc da của Cỏ Mềm rất thích hợp các nàng mới tập tành dưỡng da hoặc các nàng... \"lười\" mà vẫn muốn da được làm sạch và cung cấp đầy đủ dưỡng chất",
+                  "block-text3": "Với 4 bước tinh giản như đầy đủ:",
+                  "block-text4": "",
+                  "step": [
+                    "Bước 1- Tẩy trang",
+                    "Bước 2- Tẩy trang",
+                    "Bước 3- Tẩy trang",
+                    "Bước 4- Tẩy trang"
+                  ],
+                  "watch-detail": {
+                    "name": "Xem chi tiết về từng sản phẩm trong combo: ",
+                    "list": [
+                      {
+                        "name": "Dầu tẩy trang 3S",
+                        "link": "dau-rua-mat-3s"
+                      },    {
+                        "name": "Bột rửa mặt thảo mộc Taptap",
+                        "link": "bot-rua-mat-taptap"
+                      },    {
+                        "name": "Toner",
+                        "link": "toner-xit-khoang"
+                      },    {
+                        "name": "Serum dưỡng da Hoàng Lan",
+                        "link": "serum-hoang-lan"
+                      }
+                    ]
+                  }
+
+                }
+
+              ]
+            },
+            {
+              "name": "Combo Chăm Sóc Da BAN ĐÊM (Tẩy Trang, Bọt Rửa Mặt, Toner, Kem Dưỡng Ẩm)",
+              "link": "combo-cham-soc-da-ban-dem",
+              "images": [
+                {
+                  "name": "combo-cham-soc-da-ban-dem",
+                  "link": "https://static.comem.vn/uploads/November2022/bo-cham-soc-da-co-ban-to-tam_sp2x.jpg"
+                },
+                {
+                  "name": "combo-cham-soc-da-ban-dem",
+                  "link": "https://static.comem.vn/uploads/February2022/16_6_sp2x.jpg"
+                },
+                {
+                  "name": "combo-cham-soc-da-ban-dem",
+                  "link": "https://static.comem.vn/uploads/February2022/15_10_sp2x.jpg"
+                },
+                {
+                  "name": "combo-cham-soc-da-ban-dem",
+                  "link": "https://static.comem.vn/uploads/February2022/21_sp2x.jpg"
+                }
+              ],
+              "price-old": 620000,
+              "discount": 6,
+              "star": 4.9,
+              "rate": 191,
+              "contents": [
+                {
+                  "text": "Bột ngũ cốc tự nhiên Tẩy tế bào chết nhẹ nhàng, loại bỏ mụn cám, mụn đầu đen",
+                  "icon": "✨"
+                },
+                {
+                  "text": "4 bước Chăm sóc da đơn giản, hiệu quả",
+                  "icon": "\uD83D\uDC96"
+                },
+                {
+                  "text": "Bổ sung 7 loại dầu dưỡng quý, dưỡng da chuyên sâu",
+                  "icon": "✨"
+                },
+                {
+                  "text": "An toàn Cho da nhạy cảm, mẹ bầu, mẹ bỉm sữa, trẻ dậy thì",
+                  "icon": "\uD83C\uDF40"
+                }
+              ],
+              "promotion": [
+                {
+                  "title": "Quà tặng",
+                  "text": "Mua 2 chai Nước súc miệng Tặng 1 Xịt thơm miệng"
+                },
+                {
+                  "title": "Mua 4 Tặng 1",
+                  "text": "Sản phẩm có giá trị thấp nhất"
+                },
+                {
+                  "title": "Giảm 25k",
+                  "text": "Khi mua đơn hàng bất kì có Bọt vệ sinh Mây Hồng"
+                },
+                {
+                  "title": "Giảm 20%",
+                  "text": "Kem chống nắng Thiên nhiên khi mua trên website"
+                }
+              ],
+              "info": [
+                {
+                  "block-text1": "Combo chăm sóc da LÀM SÁNG, GIẢM MỤN ĐẦU ĐEN giúp làm sạch sâu và cung cấp các dưỡng chất cần thiết cho da, đồng thời giúp giảm tình trạng mụn cám, mụn đầu đen, se khít lỗ chân lông, giảm thâm nám giúp làn da sáng hồng hơn.",
+                  "block-text2": "Với nguyên tắc tối giản chỉ 4 bước, bộ chăm sóc da của Cỏ Mềm rất thích hợp các nàng mới tập tành dưỡng da hoặc các nàng... \"lười\" mà vẫn muốn da được làm sạch và cung cấp đầy đủ dưỡng chất",
+                  "block-text3": "Với 4 bước tinh giản như đầy đủ:",
+                  "block-text4": "",
+                  "step": [
+                    "Bước 1- Tẩy trang",
+                    "Bước 2- Tẩy trang",
+                    "Bước 3- Tẩy trang",
+                    "Bước 4- Tẩy trang"
+                  ],
+                  "watch-detail": {
+                    "name": "Xem chi tiết về từng sản phẩm trong combo: ",
+                    "list": [
+                      {
+                        "name": "Dầu tẩy trang 3S",
+                        "link": "dau-rua-mat-3s"
+                      },    {
+                        "name": "Bột rửa mặt thảo mộc Taptap",
+                        "link": "bot-rua-mat-taptap"
+                      },    {
+                        "name": "Toner",
+                        "link": "toner-xit-khoang"
+                      },    {
+                        "name": "Serum dưỡng da Hoàng Lan",
+                        "link": "serum-hoang-lan"
+                      }
+                    ]
+                  }
+
+                }
+
+              ]
+            },
+            {
+              "name": "Combo Kem Chống Nắng Hây Hây + Sữa Rửa Mặt Tạo Bọt Tơ Tằm",
+              "link": "combo-kem-chong-nang-sua-rua-mat-tao-bot-to-tam",
+              "images": [
+                {
+                  "name": "combo-kem-chong-nang-sua-rua-mat-tao-bot-to-tam",
+                  "link": "https://static.comem.vn/uploads/November2022/bo-cham-soc-da-co-ban-to-tam_sp2x.jpg"
+                },
+                {
+                  "name": "combo-kem-chong-nang-sua-rua-mat-tao-bot-to-tam",
+                  "link": "https://static.comem.vn/uploads/February2022/16_6_sp2x.jpg"
+                },
+                {
+                  "name": "combo-kem-chong-nang-sua-rua-mat-tao-bot-to-tam",
+                  "link": "https://static.comem.vn/uploads/February2022/15_10_sp2x.jpg"
+                },
+                {
+                  "name": "combo-kem-chong-nang-sua-rua-mat-tao-bot-to-tam",
+                  "link": "https://static.comem.vn/uploads/February2022/21_sp2x.jpg"
+                }
+              ],
+              "price-old": 620000,
+              "discount": 6,
+              "star": 4.9,
+              "rate": 191,
+              "contents": [
+                {
+                  "text": "Bột ngũ cốc tự nhiên Tẩy tế bào chết nhẹ nhàng, loại bỏ mụn cám, mụn đầu đen",
+                  "icon": "✨"
+                },
+                {
+                  "text": "4 bước Chăm sóc da đơn giản, hiệu quả",
+                  "icon": "\uD83D\uDC96"
+                },
+                {
+                  "text": "Bổ sung 7 loại dầu dưỡng quý, dưỡng da chuyên sâu",
+                  "icon": "✨"
+                },
+                {
+                  "text": "An toàn Cho da nhạy cảm, mẹ bầu, mẹ bỉm sữa, trẻ dậy thì",
+                  "icon": "\uD83C\uDF40"
+                }
+              ],
+              "promotion": [
+                {
+                  "title": "Quà tặng",
+                  "text": "Mua 2 chai Nước súc miệng Tặng 1 Xịt thơm miệng"
+                },
+                {
+                  "title": "Mua 4 Tặng 1",
+                  "text": "Sản phẩm có giá trị thấp nhất"
+                },
+                {
+                  "title": "Giảm 25k",
+                  "text": "Khi mua đơn hàng bất kì có Bọt vệ sinh Mây Hồng"
+                },
+                {
+                  "title": "Giảm 20%",
+                  "text": "Kem chống nắng Thiên nhiên khi mua trên website"
+                }
+              ],
+              "info": [
+                {
+                  "block-text1": "Combo chăm sóc da LÀM SÁNG, GIẢM MỤN ĐẦU ĐEN giúp làm sạch sâu và cung cấp các dưỡng chất cần thiết cho da, đồng thời giúp giảm tình trạng mụn cám, mụn đầu đen, se khít lỗ chân lông, giảm thâm nám giúp làn da sáng hồng hơn.",
+                  "block-text2": "Với nguyên tắc tối giản chỉ 4 bước, bộ chăm sóc da của Cỏ Mềm rất thích hợp các nàng mới tập tành dưỡng da hoặc các nàng... \"lười\" mà vẫn muốn da được làm sạch và cung cấp đầy đủ dưỡng chất",
+                  "block-text3": "Với 4 bước tinh giản như đầy đủ:",
+                  "block-text4": "",
+                  "step": [
+                    "Bước 1- Tẩy trang",
+                    "Bước 2- Tẩy trang",
+                    "Bước 3- Tẩy trang",
+                    "Bước 4- Tẩy trang"
+                  ],
+                  "watch-detail": {
+                    "name": "Xem chi tiết về từng sản phẩm trong combo: ",
+                    "list": [
+                      {
+                        "name": "Dầu tẩy trang 3S",
+                        "link": "dau-rua-mat-3s"
+                      },    {
+                        "name": "Bột rửa mặt thảo mộc Taptap",
+                        "link": "bot-rua-mat-taptap"
+                      },    {
+                        "name": "Toner",
+                        "link": "toner-xit-khoang"
+                      },    {
+                        "name": "Serum dưỡng da Hoàng Lan",
+                        "link": "serum-hoang-lan"
+                      }
+                    ]
+                  }
+
+                }
+
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Combo chăm sóc tóc",
+          "link": "combo-cham-soc-toc"
+        },
+        {
+          "name": "Combo chăm sóc môi",
+          "link": "combo-cham-soc-moi"
+        },
+        {
+          "name": "Combo khác",
+          "link": "combo-khac"
+        }
+      ]
+    },
+    {
+      "name": "Trang điểm",
+      "link": "trang-diem",
+      "list": [
+        {
+          "name": "Son dưỡng môi",
+          "link": "son-duong-moi"
+        },
+        {
+          "name": "Son màu không chì",
+          "link": "son-mau-khong-chi"
+        },
+        {
+          "name": "Tẩy da chết môi",
+          "link": "tay-da-chet-moi"
+        },
+        {
+          "name": "Kem nền",
+          "link": "kem-nen"
+        },
+        {
+          "name": "Kem má",
+          "link": "kem-ma"
+        }
+      ]
+    },
+    {
+      "name": "Da",
+      "link": "cham-soc-da",
+      "list": [
+        {
+          "name": "Tẩy trang - rửa mặt",
+          "link": "tay-trang-rua-mat"
+        },
+        {
+          "name": "Toner - xịt khoáng",
+          "link": "toner-xit-khoang"
+        },
+        {
+          "name": "Dưỡng da",
+          "link": "duong-da"
+        },
+        {
+          "name": "Kem chống nắng",
+          "link": "kem-chong-nang"
+        }
+      ]
+    },
+    {
+      "name": "Tóc",
+      "link": "cham-soc-toc",
+      "list": [
+        {
+          "name": "Sản phẩm gội đầu",
+          "link": "san-pham-goi-dau"
+        },
+        {
+          "name": "Sản phẩm dưỡng tóc",
+          "link": "san-pham-duong-toc"
+        }
+      ]
+    },
+    {
+      "name": "Cơ thể",
+      "link": "cham-soc-co-the",
+      "list": [
+        {
+          "name": "Xà bông thiên nhiên",
+          "link": "xa-bong-thien-nhien"
+        },
+        {
+          "name": "Sữa tắm thiên nhiên",
+          "link": "sua-tam-thien-nhien"
+        },
+        {
+          "name": "Sữa dưỡng thể",
+          "link": "sua-duong-the"
+        },
+        {
+          "name": "Tẩy da chết body",
+          "link": "tay-da-chet-body"
+        },
+        {
+          "name": "Vệ sinh vùng kín",
+          "link": "bot-ve-sinh-may-hong"
+        },
+        {
+          "name": "Chăm sóc răng miệng",
+          "link": "cham-soc-rang-mieng"
+        }
+      ]
+    },
+    {
+      "name": "Em bé",
+      "link": "san-pham-cho-be",
+      "list": [
+        {
+          "name": "Tắm bé",
+          "link": "san-pham-tam-be"
+        },
+        {
+          "name": "Chăm sóc bé",
+          "link": "san-pham-cham-soc-be"
+        }
+      ]
+    },
+    {
+      "name": "Hương thơm",
+      "link": "huong-thom",
+      "list": [
+        {
+          "name": "Tinh dầu nhỏ giọt nguyên chất",
+          "link": "tinh-dau-thien-nhien-20ml"
+        },
+        {
+          "name": "Tinh dầu trị liệu",
+          "link": "tinh-dau-tri-lieu"
+        },
+        {
+          "name": "Tinh dầu treo thông minh",
+          "link": "tinh-dau-treo-thong-minh"
+        },
+        {
+          "name": "Nước hoa khô",
+          "link": "nuoc-hoa-kho"
+        },
+        {
+          "name": "Nước hoa dạng xịt",
+          "link": "nuoc-hoa-dang-xit"
+        }
+      ]
+    },
+    {
+      "name": "Quà tặng",
+      "link": "qua-tang",
+      "list": [
+        {
+          "name": "Dưới 300k",
+          "link": "set-qua-duoi-300k"
+        },
+        {
+          "name": "Dưới 500k",
+          "link": "set-qua-duoi-500k"
+        },
+        {
+          "name": "Dưới 800k",
+          "link": "set-qua-duoi-800k"
+        }
+      ]
+    },
+    {
+      "name": "Chăm sóc nhà cửa",
+      "link": "cham-soc-nha-cua",
+      "list": []
+    },
+    {
+      "name": "Khác",
+      "link": "khac",
+      "list": [
+        {
+          "name": "Túi vải bảo vệ môi trường",
+          "link": "tui-vai"
+        }
+      ]
+    }
+  ],
+  "data-footer": [
+    {
+      "name": "về cỏ mềm",
+      "list": [
+        {
+          "name": "Chuyện của Cỏ",
+          "link": "chuyen-cua-co"
+        },
+        {
+          "name": "Về nhà máy",
+          "link": "ve-nha-may"
+        }
+      ]
+    },
+    {
+      "name": "Hoạt động cộng đồng",
+      "list": [
+        {
+          "name": "Xây trường cho trẻ em",
+          "link": ""
+        },
+        {
+          "name": "Đôi bàn tay thơm",
+          "link": ""
+        },
+        {
+          "name": "Chung tay phòng chống COVID",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "Hướng dẫn mua hàng",
+      "list": [
+        {
+          "name": "Chính sách mua hàng và thanh toán",
+          "link": "chinh-sach-mua-hang-va-thanh-toan"
+        },
+        {
+          "name": "Chính sách bảo hành",
+          "link": "chinh-sach-bao-hanh"
+        },
+        {
+          "name": "Chính sách đổi trả và hoàn tiền",
+          "link": "chinh-sach-doi-tra-va-hoan-tien"
+        },
+        {
+          "name": "Chính sách bảo mật thông tin",
+          "link": "chinh-sach-bao-mat-thong-tin"
+        }
+      ]
+    },
+    {
+      "name": "Thông tin liên hệ",
+      "list": [
+        {
+          "name": "cskh@comem.vn",
+          "link": ""
+        },
+        {
+          "name": "1800.646.890",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}
+

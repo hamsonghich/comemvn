@@ -1,0 +1,32 @@
+{
+  "name": "comemvn",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/vue-fontawesome": "^2.0.10",
+    "@nuxt/content": "^1.0.0",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@nuxtjs/vuetify": "^1.12.3",
+    "bootstrap": "^4.6.2",
+    "bootstrap-vue": "^2.22.0",
+    "core-js": "^3.25.3",
+    "json-server": "^0.17.2",
+    "nuxt": "^2.15.8",
+    "sass": "^1.58.3",
+    "sass-loader": "10",
+    "vue": "^2.0.8",
+    "vue-server-renderer": "^2.1.8",
+    "vue-simple-suggest": "^1.11.2",
+    "vue-template-compiler": "^2.1.8"
+  }
+}
