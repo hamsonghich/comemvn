@@ -3,7 +3,7 @@
     <HeaderCpn />
     <div class="container-fluid d-flex justify-content-center" style="flex-direction: column; align-items: center">
       <div class="row w-100">
-        <TreeAddress class="px--3" data-tree=""/>
+        <TreeAddress class="px--3" :data-tree="getDataTree"/>
       </div>
       <div class="row w-100">
         <div class="col-lg-3 col-xl-3 col-md-3 col-sm-3 d-none d-sm-block d-md-block d-lg-block d-xl-block">
@@ -43,6 +43,9 @@ export default {
     ]),
     ...mapGetters('home', [
       'getDataAll'
+    ]),
+    ...mapGetters('tree', [
+      'getDataTree'
     ])
   },
   methods:{

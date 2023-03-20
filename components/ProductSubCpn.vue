@@ -3,7 +3,7 @@
     <div class="row collections-filter d-flex justify-content-between align-items-center">
       <div>
         <img width="50" height="50" src="https://assets.comem.vn/images/collections/flower.png" alt="">
-        <span class="font--medium text--20">{{ this.dataProductDetails?.name.toUpperCase() }}</span>
+        <span class="font--medium text--20">{{dataProductDetails?.name?.toUpperCase()}}</span>
       </div>
       <div class="d-flex align-items-center justify-content-start">
         <span class="font--regular text--12 mr--2">Sắp xếp theo: </span>
@@ -40,7 +40,7 @@ import SelectCpn from "~/components/libs/SelectCpn.vue";
 import CardProductDetail from "~/components/libs/CardProductDetail.vue"
 
 export default {
-  name: "productsCpn",
+  name: "productSubCpn",
   components: {SelectCpn, CardProductDetail},
   data() {
     return {
@@ -56,18 +56,10 @@ export default {
   },
   created() {
     this.getDataProduct();
-    this.dataProductDetails = this.getDataAll.filter(item => {
-      return item.link === this.$route.params.product
-    })[0]
-
-    this.setDataTree([
-      {name: 'Sản phẩm', link: 'product'},
-      {name: this.dataProductDetails?.name, link: 'product/' + this.dataProductDetails?.link}
-    ])
-
-    this.dataProductList = this.getDataAll.filter(item => {
-      return item.link === this.$route.params.product
-    })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
+    this.dataProductDetails = this.getDataAll.map(item => {
+      return item.list
+    }).flat().find(item => item.link === this.$route.params.productSub)
+    this.dataProductList = this.dataProductDetails?.products.filter(item => item !== undefined).sort((a, b) => {
       let nameA = a['tag-description']?.toUpperCase().split('||')[0];
       let nameB = b['tag-description']?.toUpperCase().split('||')[0];
       if (nameA === undefined) {
@@ -82,6 +74,12 @@ export default {
       }
       return nameA.localeCompare(nameB)
     })
+
+    this.setDataTree([
+      {name: 'Sản phẩm', link: 'product'},
+      {name: this.dataProductDetails?.name, link: 'product-sub/' + this.dataProductDetails?.link}
+    ])
+
   },
   mounted() {
 
@@ -157,12 +155,10 @@ export default {
   },
   watch: {
     'dataProduct': function () {
-      this.dataProductDetails = this.getDataAll.filter(item => {
-        return item.link === this.$route.params.product
-      })[0];
-      this.dataProductList = this.getDataAll.filter(item => {
-        return item.link === this.$route.params.product
-      })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
+      this.dataProductDetails = this.getDataAll.map(item => {
+        return item.list
+      }).flat().find(item => item.link === this.$route.params.productSub)
+      this.dataProductList = this.dataProductDetails?.products.filter(item => item !== undefined).sort((a, b) => {
         let nameA = a['tag-description']?.toUpperCase().split('||')[0];
         let nameB = b['tag-description']?.toUpperCase().split('||')[0];
         if (nameA === undefined) {
@@ -177,7 +173,8 @@ export default {
         }
         return nameA.localeCompare(nameB)
       })
-      console.log('data', this.dataProductList)
+
+      console.log('data', this.dataProductDetails)
 
     }
   }

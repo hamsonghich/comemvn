@@ -37,7 +37,7 @@
           <b-collapse class="wrapper-collapse-child" :id="`collapse-`+index">
             <b-card v-for="(itemC, indexC) in item?.list" :key="indexC">
               <i class="fa-thin fa-minus"></i>
-              <nuxt-link :to="/product-details/+ itemC.link">
+              <nuxt-link :to="/product-sub/+ itemC.link">
                 <span>
                     {{ itemC?.name }} <span class="count">{{ itemC?.products?.length  || 0}}</span>
                 </span>

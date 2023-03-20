@@ -3,7 +3,7 @@
     <div class="row collections-filter d-flex justify-content-between align-items-center">
       <div>
         <img width="50" height="50" src="https://assets.comem.vn/images/collections/flower.png" alt="">
-        <span class="font--medium text--20">{{ this.dataProductDetails?.name.toUpperCase() }}</span>
+        <span class="font--medium text--20">SẢN PHẨM</span>
       </div>
       <div class="d-flex align-items-center justify-content-start">
         <span class="font--regular text--12 mr--2">Sắp xếp theo: </span>
@@ -56,32 +56,12 @@ export default {
   },
   created() {
     this.getDataProduct();
-    this.dataProductDetails = this.getDataAll.filter(item => {
-      return item.link === this.$route.params.product
-    })[0]
 
     this.setDataTree([
       {name: 'Sản phẩm', link: 'product'},
       {name: this.dataProductDetails?.name, link: 'product/' + this.dataProductDetails?.link}
     ])
 
-    this.dataProductList = this.getDataAll.filter(item => {
-      return item.link === this.$route.params.product
-    })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
-      let nameA = a['tag-description']?.toUpperCase().split('||')[0];
-      let nameB = b['tag-description']?.toUpperCase().split('||')[0];
-      if (nameA === undefined) {
-        nameA = 'YYYY'
-      } else if (nameA.includes('NEW')) {
-        nameA = 'AAAA'
-      }
-      if (nameB === undefined) {
-        nameB = 'YYYY'
-      } else if (nameB.includes('NEW')) {
-        nameB = 'AAAA'
-      }
-      return nameA.localeCompare(nameB)
-    })
   },
   mounted() {
 
@@ -157,12 +137,11 @@ export default {
   },
   watch: {
     'dataProduct': function () {
-      this.dataProductDetails = this.getDataAll.filter(item => {
-        return item.link === this.$route.params.product
-      })[0];
-      this.dataProductList = this.getDataAll.filter(item => {
-        return item.link === this.$route.params.product
-      })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
+      this.dataProductList = this.getDataAll?.map(item => {
+        return item.list.map(item => item?.products)
+      }).flat(2).filter(item => {
+        if(item){return item}
+      }).sort((a, b) => {
         let nameA = a['tag-description']?.toUpperCase().split('||')[0];
         let nameB = b['tag-description']?.toUpperCase().split('||')[0];
         if (nameA === undefined) {
@@ -177,8 +156,6 @@ export default {
         }
         return nameA.localeCompare(nameB)
       })
-      console.log('data', this.dataProductList)
-
     }
   }
 }

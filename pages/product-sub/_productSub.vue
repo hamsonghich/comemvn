@@ -1,19 +1,18 @@
 <template>
   <div>
-    {{this.$route.params.product}}
+    {{this.$route.params.productSub}}
     layout product
-    <ProductsAllCpn />
-
+    <ProductsSubCpn />
   </div>
 </template>
 
 <script>
-import ProductsAllCpn from '~/components/ProductsAllCpn.vue'
+import ProductsSubCpn from '~/components/ProductSubCpn.vue'
 export default {
-  name: "index",
+  name: "_product-sub",
   layout: 'product',
   components:{
-    ProductsAllCpn
+    ProductsSubCpn
   }
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
-    <div>
-      <i class="fa-solid fa-house"></i>
-      <nuxt-link v-for="item in dataTree1" :to="item.link">
-        {{item.name}} /
+    <div class="wrapper-tree pt--4">
+      <i class="fa-solid fa-house mr--2"></i>
+      <nuxt-link v-for="(item, index) in dataTree" :to="'/'+item.link">
+       <span v-if="index !== 0">/</span> {{item.name}}
       </nuxt-link>
     </div>
 </template>
@@ -14,14 +14,19 @@ export default {
       type: Array,
       required: true
     }
-  },
-  data(){
-    return{
-      dataTree1: [
-        {name: 'Trang chu', link: 'trang-chu'}
-      ]
-    }
   }
 }
 
 </script>
+
+<style scoped lang="scss">
+.wrapper-tree{
+  i{
+    color: var(--color-primary);
+  }
+  a{
+    text-decoration: none;
+    color: var(--color-primary);
+  }
+}
+</style>
