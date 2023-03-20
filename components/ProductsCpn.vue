@@ -18,12 +18,19 @@
 
     </div>
     <div class="row collections-list">
-      <div class="d-flex flex-wrap" v-for="item in dataProductDetails?.list">
-        <div class="m--2" v-for="itemC in item.products">
-          <CardProductDetail
-            :info-product="itemC"
-          />
-        </div>
+
+      <div class="d-flex">
+        <b-container>
+          <b-row>
+            <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductList" cols="6" sm="6" md="4" lg="3"
+                   xl="2" :key="index">
+              <CardProductDetail
+                :info-product="item"
+              />
+            </b-col>
+          </b-row>
+        </b-container>
+
       </div>
 
     </div>
@@ -41,6 +48,7 @@ export default {
   data() {
     return {
       dataProductDetails: {},
+      dataProductList: [],
       optionsSort: [
         {value: 'newest', text: 'Mới nhất'},
         {value: 'hightToLow', text: 'Cao đến thấp'},
@@ -54,6 +62,27 @@ export default {
     this.dataProductDetails = this.getDataAll.filter(item => {
       return item.link === this.$route.params.product
     })[0]
+
+    this.dataProductList = this.getDataAll.filter(item => {
+      return item.link === this.$route.params.product
+    })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
+      let nameA = a['tag-description']?.toUpperCase().split('||')[0];
+      let nameB = b['tag-description']?.toUpperCase().split('||')[0];
+      if (nameA === undefined) {
+        nameA = 'YYYY'
+      } else if (nameA.includes('NEW')) {
+        nameA = 'AAAA'
+      }
+      if (nameB === undefined) {
+        nameB = 'YYYY'
+      } else if (nameB.includes('NEW')) {
+        nameB = 'AAAA'
+      }
+      return nameA.localeCompare(nameB)
+    })
+  },
+  mounted() {
+
   },
   computed: {
     ...mapState('home', [
@@ -67,15 +96,85 @@ export default {
     ...mapActions('home', [
       'getDataProduct'
     ]),
-    chooseSelected(value){
-      console.log('emit', value)
+    chooseSelected(value) {
+      console.log('emit', value);
+      switch (value) {
+        case 'newest':
+          this.dataProductList = [...this.dataProductList].sort((a, b) => {
+            let nameA = a['tag-description']?.toUpperCase().split('||')[0];
+            let nameB = b['tag-description']?.toUpperCase().split('||')[0];
+            if (nameA === undefined) {
+              nameA = 'YYYY'
+            } else if (nameA.includes('NEW')) {
+              nameA = 'AAAA'
+            }
+            if (nameB === undefined) {
+              nameB = 'YYYY'
+            } else if (nameB.includes('NEW')) {
+              nameB = 'AAAA'
+            }
+            return nameA.localeCompare(nameB)
+          })
+          break
+        case 'hightToLow':
+          this.dataProductList = [...this.dataProductList].sort((a, b) => {
+            if (!a['discount']) {
+              a['discount'] = 1
+            }
+            if (!b['discount']) {
+              b['discount'] = 1
+            }
+            return (a['price-old'] * a['discount']) - (b['price-old'] * b['discount'])
+          })
+          break
+        case 'lowToHight':
+          this.dataProductList = [...this.dataProductList].sort((b, a) => {
+            if (!a['discount']) {
+              a['discount'] = 1
+            }
+            if (!b['discount']) {
+              b['discount'] = 1
+            }
+            return (a['price-old'] * a['discount']) - (b['price-old'] * b['discount'])
+          })
+          break
+        case 'name':
+          this.dataProductList = [...this.dataProductList].sort((a, b) => {
+            const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            return nameA.localeCompare(nameB)
+          })
+          break
+        default:
+
+      }
     }
   },
   watch: {
     'dataProduct': function () {
       this.dataProductDetails = this.getDataAll.filter(item => {
         return item.link === this.$route.params.product
-      })[0]
+      })[0];
+
+      this.dataProductList = this.getDataAll.filter(item => {
+        return item.link === this.$route.params.product
+      })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
+        let nameA = a['tag-description']?.toUpperCase().split('||')[0];
+        let nameB = b['tag-description']?.toUpperCase().split('||')[0];
+        if (nameA === undefined) {
+          nameA = 'YYYY'
+        } else if (nameA.includes('NEW')) {
+          nameA = 'AAAA'
+        }
+        if (nameB === undefined) {
+          nameB = 'YYYY'
+        } else if (nameB.includes('NEW')) {
+          nameB = 'AAAA'
+        }
+        return nameA.localeCompare(nameB)
+      })
+      console.log('data', this.dataProductList)
+
     }
   }
 }

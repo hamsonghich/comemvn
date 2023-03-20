@@ -3,12 +3,13 @@
     {{this.$route.params.product}}
     layout product
     <ProductsCpn />
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "_product",
+  name: "index",
   layout: 'product'
 }
 </script>

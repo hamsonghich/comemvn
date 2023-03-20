@@ -89,5 +89,8 @@ export default {
         fs: 'empty'
       }
     }
+  },
+  server: {
+    port: 4500
   }
 }
