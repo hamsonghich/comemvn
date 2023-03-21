@@ -22,7 +22,7 @@
         <b-container>
           <b-row>
             <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductList" cols="6" sm="6" md="4" lg="3"
-                   xl="2" :key="index">
+                   xl="3" :key="index">
               <CardProductDetail
                 :info-product="item"
               />

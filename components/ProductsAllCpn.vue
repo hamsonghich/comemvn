@@ -21,8 +21,9 @@
       <div class="d-flex">
         <b-container>
           <b-row>
-            <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductList" cols="6" sm="6" md="4" lg="3"
-                   xl="2" :key="index">
+            <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductListPagination" cols="6" sm="6" md="4"
+                   lg="3"
+                   xl="3" :key="index">
               <CardProductDetail
                 :info-product="item"
               />
@@ -36,6 +37,7 @@
       :total-rows="rows"
       :per-page="perPage"
       last-number
+      :class="'pagination-product-all d-flex justify-content-center align-items-center'"
     ></b-pagination>
   </div>
 </template>
@@ -44,18 +46,21 @@
 import {mapActions, mapGetters, mapState} from "vuex";
 import SelectCpn from "~/components/libs/SelectCpn.vue";
 import CardProductDetail from "~/components/libs/CardProductDetail.vue"
+import * as CONSTANTS from "~/utils/Constants"
 
 export default {
+
   name: "productsCpn",
   components: {SelectCpn, CardProductDetail},
   data() {
     return {
-      perPage: 3,
+      perPage: CONSTANTS.PAGE_ALL_PRODUCT.perPage, // 12
       currentPage: 1,
-      rows: 100,
+      rows: 10,
 
       dataProductDetails: {},
       dataProductList: [],
+      dataProductListPagination: [],
       optionsSort: [
         {value: 'newest', text: 'Mới nhất'},
         {value: 'hightToLow', text: 'Cao đến thấp'},
@@ -64,12 +69,34 @@ export default {
       ]
     }
   },
-  created() {
-    this.getDataProduct();
+  async created() {
+    await this.getDataProduct();
+    this.dataProductList = this.chunkArray(this.getDataAll?.map(item => {
+      return item.list.map(item => item?.products)
+    }).flat(2).filter(item => {
+      if (item) {
+        return item
+      }
+    }).sort((a, b) => {
+      let nameA = a['tag-description']?.toUpperCase().split('||')[0];
+      let nameB = b['tag-description']?.toUpperCase().split('||')[0];
+      if (nameA === undefined) {
+        nameA = 'YYYY'
+      } else if (nameA.includes('NEW')) {
+        nameA = 'AA'
+      }
+      if (nameB === undefined) {
+        nameB = 'YYYY'
+      } else if (nameB.includes('NEW')) {
+        nameB = 'AA'
+      }
+      return nameA.localeCompare(nameB)
+    }), this.perPage)
 
-    this.setDataTree([
-      {name: 'Tất cả Sản phẩm', link: 'product'},
-      {name: this.dataProductDetails?.name, link: 'product/' + this.dataProductDetails?.link}
+    this.dataProductListPagination = this.dataProductList[0]
+    this.rows = this.dataProductList.length * CONSTANTS.PAGE_ALL_PRODUCT.perPage;
+    await this.setDataTree([
+      {name: 'Tất cả Sản phẩm', link: 'product'}
     ])
 
   },
@@ -92,7 +119,6 @@ export default {
       'setDataTree'
     ]),
     chooseSelected(value) {
-      console.log('emit', value);
       switch (value) {
         case 'newest':
           this.dataProductList = [...this.dataProductList].sort((a, b) => {
@@ -143,39 +169,69 @@ export default {
         default:
 
       }
-    }
+    },
 
+    chunkArray(myArray, chunk_size) {
+      let results = [];
+      while (myArray.length) {
+        results.push(myArray.splice(0, chunk_size));
+      }
+      return results;
+    }
   },
   watch: {
     'dataProduct': function () {
-      this.dataProductList = this.getDataAll?.map(item => {
+      this.dataProductList = this.chunkArray(this.getDataAll?.map(item => {
         return item.list.map(item => item?.products)
       }).flat(2).filter(item => {
-        if(item){return item}
+        if (item) {
+          return item
+        }
       }).sort((a, b) => {
         let nameA = a['tag-description']?.toUpperCase().split('||')[0];
         let nameB = b['tag-description']?.toUpperCase().split('||')[0];
         if (nameA === undefined) {
           nameA = 'YYYY'
         } else if (nameA.includes('NEW')) {
-          nameA = 'AAAA'
+          nameA = 'AA'
         }
         if (nameB === undefined) {
           nameB = 'YYYY'
         } else if (nameB.includes('NEW')) {
-          nameB = 'AAAA'
+          nameB = 'AA'
         }
         return nameA.localeCompare(nameB)
-      })
+      }), this.perPage)
+      this.rows = this.dataProductList.length * CONSTANTS.PAGE_ALL_PRODUCT.perPage;
+    },
 
-      this.rows = this.dataProductList.length;
-      
-
+    'currentPage': function () {
+      this.dataProductListPagination = this.dataProductList[this.currentPage - 1]
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+::v-deep .pagination-product-all {
+  li {
+    margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
+  }
+
+  .page-item.disabled .page-link {
+    border-radius: 50% !important;
+  }
+
+  .page-link {
+    padding: 0.5rem 0.85rem !important;
+    border-radius: 50% !important;
+  }
+  .page-item.active .page-link {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(98, 108, 19, 0.20);
+  }
+}
 
 </style>
