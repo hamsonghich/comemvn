@@ -3,7 +3,7 @@
     <div class="row collections-filter d-flex justify-content-between align-items-center">
       <div>
         <img width="50" height="50" src="https://assets.comem.vn/images/collections/flower.png" alt="">
-        <span class="font--medium text--20">{{dataProductDetails?.name?.toUpperCase()}}</span>
+        <span class="font--medium text--20">{{ dataProductList[0]?.parent2?.name?.toUpperCase() }}</span>
       </div>
       <div class="d-flex align-items-center justify-content-start">
         <span class="font--regular text--12 mr--2">Sắp xếp theo: </span>
@@ -44,7 +44,6 @@ export default {
   components: {SelectCpn, CardProductDetail},
   data() {
     return {
-      dataProductDetails: {},
       dataProductList: [],
       optionsSort: [
         {value: 'newest', text: 'Mới nhất'},
@@ -56,10 +55,18 @@ export default {
   },
   created() {
     this.getDataProduct();
-    this.dataProductDetails = this.getDataAll.map(item => {
-      return item.list
-    }).flat().find(item => item.link === this.$route.params.productSub)
-    this.dataProductList = this.dataProductDetails?.products.filter(item => item !== undefined).sort((a, b) => {
+    let parent1, parent2;
+    this.dataProductList = this.getDataAll.map(item => {
+      parent1 = {name: item.name, link: item.link}
+      return item.list.map(item => {
+        parent2 = {name: item.name, link: item.link}
+        return {...item, parent1: parent1}?.products?.map(item => {
+          return {...item, parent2: parent2, parent1: parent1}
+        })
+      })
+    }).flat(2).filter(itemC => itemC !== undefined).filter(item => {
+      return item.parent2.link === this.$route.params.productSub
+    }).sort((a, b) => {
       let nameA = a['tag-description']?.toUpperCase().split('||')[0];
       let nameB = b['tag-description']?.toUpperCase().split('||')[0];
       if (nameA === undefined) {
@@ -76,8 +83,9 @@ export default {
     })
 
     this.setDataTree([
-      {name: 'Sản phẩm', link: 'product'},
-      {name: this.dataProductDetails?.name, link: 'product-sub/' + this.dataProductDetails?.link}
+      {name: 'Tất cả Sản phẩm', link: 'product'},
+      {name: this.dataProductList[0]?.parent1?.name, link: 'product/' + this.dataProductList[0]?.parent1?.link},
+      {name:  this.dataProductList[0]?.parent2?.name, link: 'product-sub/' + this.dataProductList[0]?.parent2?.link}
     ])
 
   },
@@ -155,10 +163,18 @@ export default {
   },
   watch: {
     'dataProduct': function () {
-      this.dataProductDetails = this.getDataAll.map(item => {
-        return item.list
-      }).flat().find(item => item.link === this.$route.params.productSub)
-      this.dataProductList = this.dataProductDetails?.products.filter(item => item !== undefined).sort((a, b) => {
+      let parent1, parent2;
+      this.dataProductList = this.getDataAll.map(item => {
+        parent1 = {name: item.name, link: item.link}
+        return item.list.map(item => {
+          parent2 = {name: item?.name, link: item?.link}
+          return {...item, parent1: parent1}?.products?.map(item => {
+            return {...item, parent2: parent2, parent1: parent1}
+          })
+        })
+      }).flat(2).filter(itemC => itemC !== undefined).filter(item => {
+        return item?.parent2?.link === this.$route.params.productSub
+      }).sort((a, b) => {
         let nameA = a['tag-description']?.toUpperCase().split('||')[0];
         let nameB = b['tag-description']?.toUpperCase().split('||')[0];
         if (nameA === undefined) {
@@ -173,8 +189,8 @@ export default {
         }
         return nameA.localeCompare(nameB)
       })
+      console.log('dataProductList', this.dataProductList)
 
-      console.log('data', this.dataProductDetails)
 
     }
   }

@@ -31,6 +31,12 @@
         </b-container>
       </div>
     </div>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      last-number
+    ></b-pagination>
   </div>
 </template>
 
@@ -44,6 +50,10 @@ export default {
   components: {SelectCpn, CardProductDetail},
   data() {
     return {
+      perPage: 3,
+      currentPage: 1,
+      rows: 100,
+
       dataProductDetails: {},
       dataProductList: [],
       optionsSort: [
@@ -58,7 +68,7 @@ export default {
     this.getDataProduct();
 
     this.setDataTree([
-      {name: 'Sản phẩm', link: 'product'},
+      {name: 'Tất cả Sản phẩm', link: 'product'},
       {name: this.dataProductDetails?.name, link: 'product/' + this.dataProductDetails?.link}
     ])
 
@@ -134,6 +144,7 @@ export default {
 
       }
     }
+
   },
   watch: {
     'dataProduct': function () {
@@ -156,6 +167,10 @@ export default {
         }
         return nameA.localeCompare(nameB)
       })
+
+      this.rows = this.dataProductList.length;
+      
+
     }
   }
 }

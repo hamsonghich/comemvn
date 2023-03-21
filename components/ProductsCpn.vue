@@ -61,7 +61,7 @@ export default {
     })[0]
 
     this.setDataTree([
-      {name: 'Sản phẩm', link: 'product'},
+      {name: 'Tất cả Sản phẩm', link: 'product'},
       {name: this.dataProductDetails?.name, link: 'product/' + this.dataProductDetails?.link}
     ])
 
