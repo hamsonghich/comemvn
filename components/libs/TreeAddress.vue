@@ -4,16 +4,25 @@
       <nuxt-link v-for="(item, index) in dataTree" :to="'/'+item.link">
        <span v-if="index !== 0">/</span> {{item.name}}
       </nuxt-link>
+      <br />
     </div>
 </template>
 
 <script>
+import {mapActions, mapGetters, mapState} from "vuex";
+
 export default {
-  props:{
-    dataTree:{
-      type: Array,
-      required: true
-    }
+   created() {
+    console.log('tree data component')
+    console.log('tree info', this.dataTree)
+  },
+  computed:{
+    ...mapState('tree', [
+      'dataTree'
+    ]),
+    ...mapGetters('tree', [
+      'getDataTree'
+    ])
   }
 }
 

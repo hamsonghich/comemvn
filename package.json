@@ -20,6 +20,7 @@
     "bootstrap": "^4.6.2",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.25.3",
+    "firebase": "^8",
     "json-server": "^0.17.2",
     "nuxt": "^2.15.8",
     "sass": "^1.58.3",

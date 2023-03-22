@@ -3,7 +3,7 @@
     <div class="row collections-filter d-flex justify-content-between align-items-center">
       <div>
         <img width="50" height="50" src="https://assets.comem.vn/images/collections/flower.png" alt="">
-        <span class="font--medium text--20">{{ this.dataProductDetails?.name.toUpperCase() }}</span>
+        <span class="font--medium text--20">{{ this.dataProductDetails?.name?.toUpperCase() }}</span>
       </div>
       <div class="d-flex align-items-center justify-content-start">
         <span class="font--regular text--12 mr--2">Sắp xếp theo: </span>
@@ -18,7 +18,7 @@
 
     </div>
     <div class="row collections-list">
-      <div class="d-flex">
+      <div class="d-flex w-100">
         <b-container>
           <b-row>
             <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductList" cols="6" sm="6" md="4" lg="3"
@@ -54,10 +54,10 @@ export default {
       ]
     }
   },
-  created() {
-    this.getDataProduct();
-    this.dataProductDetails = this.getDataAll.filter(item => {
-      return item.link === this.$route.params.product
+  async created() {
+    await this.getDataProductFirebase();
+    this.dataProductDetails = this.dataProductFirebase.filter(item => {
+      return item?.link === this.$route.params.product
     })[0]
 
     this.setDataTree([
@@ -65,9 +65,9 @@ export default {
       {name: this.dataProductDetails?.name, link: 'product/' + this.dataProductDetails?.link}
     ])
 
-    this.dataProductList = this.getDataAll.filter(item => {
+    this.dataProductList = this.dataProductFirebase.filter(item => {
       return item.link === this.$route.params.product
-    })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
+    })[0]?.list?.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
       let nameA = a['tag-description']?.toUpperCase().split('||')[0];
       let nameB = b['tag-description']?.toUpperCase().split('||')[0];
       if (nameA === undefined) {
@@ -88,15 +88,18 @@ export default {
   },
   computed: {
     ...mapState('home', [
-      'dataProduct'
+      'dataProduct',
+      'dataProductFirebase'
     ]),
     ...mapGetters('home', [
-      'getDataAll'
+      'getDataAll',
+      'getDataAllFirebase'
     ])
   },
   methods: {
     ...mapActions('home', [
-      'getDataProduct'
+      'getDataProduct',
+      'getDataProductFirebase'
     ]),
     ...mapActions('tree', [
       'setDataTree'
@@ -156,13 +159,13 @@ export default {
     }
   },
   watch: {
-    'dataProduct': function () {
-      this.dataProductDetails = this.getDataAll.filter(item => {
+    'dataProductFirebase': function () {
+      this.dataProductDetails = this.dataProductFirebase.filter(item => {
         return item.link === this.$route.params.product
       })[0];
-      this.dataProductList = this.getDataAll.filter(item => {
+      this.dataProductList = this.dataProductFirebase.filter(item => {
         return item.link === this.$route.params.product
-      })[0]?.list.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
+      })[0]?.list?.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
         let nameA = a['tag-description']?.toUpperCase().split('||')[0];
         let nameB = b['tag-description']?.toUpperCase().split('||')[0];
         if (nameA === undefined) {

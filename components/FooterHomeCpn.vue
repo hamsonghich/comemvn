@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row site-footer__main">
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 " v-for="(item, index) in getDataFooter" :key="index">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 " v-for="(item, index) in dataFooterFirebase" :key="index">
         <p class="footer-title text--16 font--semibold">{{ item.name }}</p>
         <ul>
           <li class="footer-details text--16 font--regular mb--3" v-for="(itemC, indexC) in item.list" :key="indexC">
@@ -276,22 +276,30 @@ export default {
     }
   },
   async created() {
-    await this.dataFooterActions()
+    await this.dataFooterFirebaseActions()
   },
   computed:{
     ...mapState('footer', [
-      'dataFooter'
+      'dataFooter',
+      'dataFooterFirebase'
     ]),
     ...mapGetters('footer', [
-      'getDataFooter'
+      'getDataFooter',
+      'getDataFooterFirebase'
     ])
   },
   methods: {
     ...mapActions('footer', [
-      'dataFooterActions'
+      'dataFooterActions',
+      'dataFooterFirebaseActions'
     ]),
     fnEmitValueInputEmail(email) {
       this.valueEmail = email
+    }
+  },
+  watch:{
+    'dataFooterFirebase': async function () {
+      await this.dataFooterFirebaseActions()
     }
   }
 }

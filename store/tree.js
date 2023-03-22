@@ -10,6 +10,7 @@ export const getters = {
 
 export const mutations = {
   SET_DATA_TREE(state, _payload){
+    console.log('payload', _payload)
     state.dataTree = _payload
   }
 }

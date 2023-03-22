@@ -1,7 +1,8 @@
 <template>
-  <div>
-    {{this.$route.params.productDetails}}
-    layout product details
+  <div class="container-fluid">
+    <div class="row w-100">
+      <ProductsDetailsCpn />
+    </div>
   </div>
 </template>
 

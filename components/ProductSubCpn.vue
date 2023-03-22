@@ -18,7 +18,7 @@
 
     </div>
     <div class="row collections-list">
-      <div class="d-flex">
+      <div class="d-flex w-100">
         <b-container>
           <b-row>
             <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductList" cols="6" sm="6" md="4" lg="3"
@@ -53,12 +53,12 @@ export default {
       ]
     }
   },
-  created() {
-    this.getDataProduct();
+  async created() {
+    await this.getDataProductFirebase();
     let parent1, parent2;
-    this.dataProductList = this.getDataAll.map(item => {
+    this.dataProductList = this.dataProductFirebase?.map(item => {
       parent1 = {name: item.name, link: item.link}
-      return item.list.map(item => {
+      return item?.list?.map(item => {
         parent2 = {name: item.name, link: item.link}
         return {...item, parent1: parent1}?.products?.map(item => {
           return {...item, parent2: parent2, parent1: parent1}
@@ -85,8 +85,9 @@ export default {
     this.setDataTree([
       {name: 'Tất cả Sản phẩm', link: 'product'},
       {name: this.dataProductList[0]?.parent1?.name, link: 'product/' + this.dataProductList[0]?.parent1?.link},
-      {name:  this.dataProductList[0]?.parent2?.name, link: 'product-sub/' + this.dataProductList[0]?.parent2?.link}
+      {name: this.dataProductList[0]?.parent2?.name, link: 'product-sub/' + this.dataProductList[0]?.parent2?.link}
     ])
+    console.log('dataTree', this.dataTree)
 
   },
   mounted() {
@@ -94,15 +95,21 @@ export default {
   },
   computed: {
     ...mapState('home', [
-      'dataProduct'
+      'dataProduct',
+      'dataProductFirebase'
     ]),
     ...mapGetters('home', [
-      'getDataAll'
+      'getDataAll',
+      'getDataAllFirebase'
+    ]),
+    ...mapState('tree', [
+      'dataTree'
     ])
   },
   methods: {
     ...mapActions('home', [
-      'getDataProduct'
+      'getDataProduct',
+      'getDataProductFirebase'
     ]),
     ...mapActions('tree', [
       'setDataTree'
@@ -162,11 +169,11 @@ export default {
     }
   },
   watch: {
-    'dataProduct': function () {
+    'dataProductFirebase': function () {
       let parent1, parent2;
-      this.dataProductList = this.getDataAll.map(item => {
+      this.dataProductList = this.dataProductFirebase?.map(item => {
         parent1 = {name: item.name, link: item.link}
-        return item.list.map(item => {
+        return item?.list?.map(item => {
           parent2 = {name: item?.name, link: item?.link}
           return {...item, parent1: parent1}?.products?.map(item => {
             return {...item, parent2: parent2, parent1: parent1}
@@ -190,6 +197,7 @@ export default {
         return nameA.localeCompare(nameB)
       })
       console.log('dataProductList', this.dataProductList)
+
 
 
     }

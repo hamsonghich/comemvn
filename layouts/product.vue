@@ -3,11 +3,11 @@
     <HeaderCpn />
     <div class="container-fluid d-flex justify-content-center" style="flex-direction: column; align-items: center">
       <div class="row w-100">
-        <TreeAddress class="px--3" :data-tree="this.getDataTree"/>
+        <TreeAddress class="px--3" />
       </div>
       <div class="row w-100">
         <div class="col-lg-3 col-xl-3 col-md-3 col-sm-3 d-none d-sm-block d-md-block d-lg-block d-xl-block">
-          <SidebarVerticalCpn :dataAllProduct="this.getDataAll"/>
+          <SidebarVerticalCpn :dataAllProduct="dataProductFirebase"/>
         </div>
         <div class="col-sm-9 col-lg-9 col-xl-9 col-md-9 col-12">
           <nuxt/>
@@ -34,15 +34,18 @@ export default {
     TreeAddress
   },
   layout: 'product',
-  created() {
-    this.getDataProduct()
+  async created() {
+    await this.getDataProductFirebase()
+    console.log('layout', this.dataProductFirebase)
   },
   computed:{
     ...mapState('home', [
-      'dataProduct'
+      'dataProduct',
+      'dataProductFirebase'
     ]),
     ...mapGetters('home', [
-      'getDataAll'
+      'getDataAll',
+      'getDataAllFirebase'
     ]),
     ...mapGetters('tree', [
       'getDataTree'
@@ -50,7 +53,8 @@ export default {
   },
   methods:{
     ...mapActions('home', [
-      'getDataProduct'
+      'getDataProduct',
+      'getDataProductFirebase'
     ])
   }
 }

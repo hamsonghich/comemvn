@@ -15,7 +15,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <nuxt-link :to="/product/+ item?.link">
                 <span>
-                    {{ item?.name }} <span class="count">{{ item.list.length }}</span>
+                    {{ item?.name }} <span class="count">{{ item?.list?.length }}</span>
                 </span>
                 </nuxt-link>
                 <i class="fa-solid fa-angle-down"></i>
@@ -54,7 +54,10 @@
 <script>
 export default {
   props: {
-    dataAllProduct: []
+    dataAllProduct: {
+      type: Array,
+      required: true
+    }
   },
   data() {
     return {

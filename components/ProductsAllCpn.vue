@@ -18,7 +18,7 @@
 
     </div>
     <div class="row collections-list">
-      <div class="d-flex">
+      <div class="d-flex w-100">
         <b-container>
           <b-row>
             <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductListPagination" cols="6" sm="6" md="4"
@@ -32,13 +32,14 @@
         </b-container>
       </div>
     </div>
-    <b-pagination
-      v-model="currentPage"
-      :total-rows="rows"
-      :per-page="perPage"
-      last-number
-      :class="'pagination-product-all d-flex justify-content-center align-items-center'"
-    ></b-pagination>
+
+    <PaginationCpn
+      :rows="rows"
+      :current-page="currentPage"
+      :perPage="perPage"
+      @currentEmit="getEmitCurrentPage"
+    />
+
   </div>
 </template>
 
@@ -47,11 +48,12 @@ import {mapActions, mapGetters, mapState} from "vuex";
 import SelectCpn from "~/components/libs/SelectCpn.vue";
 import CardProductDetail from "~/components/libs/CardProductDetail.vue"
 import * as CONSTANTS from "~/utils/Constants"
+import PaginationCpn from '~/components/libs/PaginigationCpn.vue'
 
 export default {
 
   name: "productsCpn",
-  components: {SelectCpn, CardProductDetail},
+  components: {SelectCpn, CardProductDetail, PaginationCpn},
   data() {
     return {
       perPage: CONSTANTS.PAGE_ALL_PRODUCT.perPage, // 12
@@ -70,9 +72,9 @@ export default {
     }
   },
   async created() {
-    await this.getDataProduct();
-    this.dataProductList = this.chunkArray(this.getDataAll?.map(item => {
-      return item.list.map(item => item?.products)
+    await this.getDataProductFirebase();
+    this.dataProductList = this.chunkArray(this.dataProductFirebase?.map(item => {
+      return item?.list?.map(item => item?.products)
     }).flat(2).filter(item => {
       if (item) {
         return item
@@ -105,15 +107,18 @@ export default {
   },
   computed: {
     ...mapState('home', [
-      'dataProduct'
+      'dataProduct',
+      'dataProductFirebase'
     ]),
     ...mapGetters('home', [
-      'getDataAll'
+      'getDataAll',
+      'getDataAllFirebase'
     ])
   },
   methods: {
     ...mapActions('home', [
-      'getDataProduct'
+      'getDataProduct',
+      'getDataProductFirebase'
     ]),
     ...mapActions('tree', [
       'setDataTree'
@@ -177,12 +182,16 @@ export default {
         results.push(myArray.splice(0, chunk_size));
       }
       return results;
+    },
+
+    getEmitCurrentPage(currentPage){
+      this.currentPage = currentPage
     }
   },
   watch: {
-    'dataProduct': function () {
-      this.dataProductList = this.chunkArray(this.getDataAll?.map(item => {
-        return item.list.map(item => item?.products)
+    'dataProductFirebase': function () {
+      this.dataProductList = this.chunkArray(this.dataProductFirebase?.map(item => {
+        return item?.list?.map(item => item?.products)
       }).flat(2).filter(item => {
         if (item) {
           return item

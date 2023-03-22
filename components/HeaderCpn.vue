@@ -103,7 +103,7 @@
       <div class="site-header__bottom-sale__child">
         <ul class="d-flex justify-content-start align-items-center flex-wrap  header-menu">
           <li class="header-menu__item1 px--3 h-100 d-flex justify-content-center align-items-center font--semibold"
-              v-for="(item, index) in this.getDataAll"
+              v-for="(item, index) in this.getDataAllFirebase"
               :key="index"
           >
             <nuxt-link class="link-item-header h-100 d-flex justify-content-center align-items-center"
@@ -202,9 +202,9 @@ export default {
     }
   },
   async created() {
-    await this.getDataProduct();
+    await this.getDataProductFirebase();
     let listSearchOptionsChild = []
-    this.listSearchOptions = this.getDataAll.map(item => {
+    this.listSearchOptions = this.dataProductFirebase?.map(item => {
       if (item?.list) {
         listSearchOptionsChild = [...listSearchOptionsChild, ...item.list.map(itemC => {
           return {title: itemC.name, id: itemC.link}
@@ -217,15 +217,18 @@ export default {
   },
   computed: {
     ...mapState('home', [
-      'dataProduct'
+      'dataProduct',
+      'dataProductFirebase'
     ]),
     ...mapGetters('home', [
-      'getDataAll'
+      'getDataAll',
+      'getDataAllFirebase'
     ])
   },
   methods: {
     ...mapActions('home', [
-      'getDataProduct'
+      'getDataProduct',
+      'getDataProductFirebase'
     ]),
     fnEmitChooseSearch(emit) {
       console.log('emit', emit)
@@ -233,6 +236,11 @@ export default {
     },
     getDataItemsVerticalSidebar(itemC) {
       this.dataItemsVerticalSidebar = itemC
+    }
+  },
+  watch:{
+    'dataProductFirebase': async function() {
+      await this.getDataProductFirebase();
     }
   }
 }
