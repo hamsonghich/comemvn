@@ -1,5 +1,6 @@
 import * as request from "~/utils/BaseAxios";
 import firebase from "~/plugins/firebase";
+import {getDataFirebase} from "~/utils/functions/FirebaseFunc";
 
 export const state = () => ({
   dataProduct: [],

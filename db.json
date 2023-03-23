@@ -11,6 +11,7 @@
             {
               "name": "Combo Firstdate Taptap - Chăm sóc da mụn cám, mụn đầu đen",
               "link": "combo-first-date-taptap",
+              "sub-title-default": "Sáng da, Sạch mụn ẩn, Giảm thâm nám",
               "images": [
                 {
                   "name": "combo-first-date-taptap",
@@ -2089,6 +2090,21 @@
         }
       ]
     }
-  ]
+  ],
+  "data-ship": {
+    "shipping-fee": [
+      {
+        "name": "Nội thành Hà Nội - 20.000đ",
+        "details": "Quận Ba Đình, Quận Bắc Từ Liêm, Quận Đống Đa, Quận Hà Đông, Quận Hoàn Kiếm, Quận Long Biên, nhieu vcl"
+      },
+      {
+        "name": "Các tỉnh còn lại - 25.000đ"
+      }
+    ],
+    "shipping-time": [
+      "Hà Nội, TP.HCM: 1-2 ngày",
+      "Các tỉnh còn lại: 2-5 ngày"
+    ]
+  }
 }
 

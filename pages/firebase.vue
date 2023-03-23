@@ -1,6 +1,6 @@
 <template>
     <div>
-{{ getDataAllFirebase}}
+     firebase
     </div>
 </template>
 
@@ -8,6 +8,11 @@
 import * as firebaseApi from "~/utils/FirebaseApi";
 import {mapActions, mapGetters} from "vuex";
 export default {
+  data(){
+    return{
+      link: this.$route.name
+    }
+  },
   async mounted() {
 
   },
@@ -23,6 +28,11 @@ export default {
     ...mapActions('home', [
       'getDataProductFirebase'
     ])
+  },
+  watch:{
+    'link': function (){
+      this.$route.name = 'firbase'
+    }
   }
 }
 </script>
