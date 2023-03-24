@@ -15,6 +15,7 @@ export const mutations = {
     state.dataProductSub = _payload
   },
   SET_DATA_PRODUCT_SUB_HANDLES(state, _payload) {
+    console.log('_payload', _payload)
     state.dataProductSubHandles = _payload
   }
 }
@@ -31,7 +32,7 @@ export const actions = {
       console.log(error);
     }
   },
-  getDataProductSubHandles({commit}, _payload){
+  async getDataProductSubHandles({commit}, _payload){
     commit('SET_DATA_PRODUCT_SUB_HANDLES', _payload)
   }
 

@@ -187,8 +187,9 @@
 
         <b-collapse class=" w-100 mt-2" :id="`collapse-`+indexP">
           <b-card class="contain-product-sub w-100">
-            <div v-if="_dataProductSubHandles[itemP.key]">
-              <div v-for="(itemC, indexC) in Object.values(_dataProductSubHandles[itemP.key])"
+            <div v-if="dataProductSubHandles[itemP.key]">
+              {{dataProductSubHandles['-NRGCJeZoE_Si70TUDp0']}}
+              <div v-for="(itemC, indexC) in Object.values(dataProductSubHandles[itemP.key])"
                    class="row row-table-sub-product"
                    :key="indexC">
                 <div class="col-3">
@@ -358,24 +359,27 @@ export default {
     async submitFormEditProductSub() {
       await setDataFirebase(`data-product/${this.dataItemParent.key}/product-sub`, this.dataFormSubEdit.key, this.dataFormSubEdit)
       this.$refs['my-modal-edit-product-sub'].hide()
-      await this.getDataProduct()
+
     }
 
   },
   watch: {
     'dataProduct': async function () {
+      console.log('goi lai')
       this.options = this.dataProduct.map(item => {
         return {value: item.key, text: item.name}
       })
       for (let i = 0; i < this.dataProduct.length; i++) {
         await this.getDataProductSub(this.dataProduct[i].key)
         let temp = null
+        console.log('this.dataProductSub', this.dataProductSub)
         if (this.dataProductSub) {
           temp = this.dataProductSub
           this.productSubAll[this.dataProduct[i].key] = {...temp}
         }
       }
       await this.getDataProductSubHandles(this.productSubAll)
+      console.log('data need', this.dataProductSubHandles)
     }
   }
 }
