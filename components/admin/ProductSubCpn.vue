@@ -201,7 +201,7 @@
                   {{ itemC.key }}
                 </div>
                 <div class="col-3">
-                  <button @click="editFormProductSub(itemC)" class="mx--1"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button @click="editFormProductSub(itemC, itemP)" class="mx--1"><i class="fa-solid fa-pen-to-square"></i></button>
                   <button @click="deleteFormProductSub(itemC)" class="mx--1"><i class="fa-solid fa-trash"></i></button>
                 </div>
               </div>
@@ -245,7 +245,8 @@ export default {
       selected: null,
       options: [],
       productSubAll: {},
-      productSubAllEx: []
+      productSubAllEx: [],
+      dataItemParent:{}
     }
   },
   async created() {
@@ -323,17 +324,18 @@ export default {
         }
       }
     },
-    editFormProductSub(item) {
+    editFormProductSub(itemC, itemP) {
+      this.dataItemParent = itemP
       this.$refs['my-modal-edit-product-sub'].show()
-      this.dataFormSubEdit = {...item}
+      this.dataFormSubEdit = {...itemC}
 
     },
     async submitFormAddProductMain() {
       await postDataFirebase('data-product', this.dataFormMainAdd)
       this.hideModal('add', 'main')
     },
-    submitFormEditProductMain() {
-      setDataFirebase('data-product', this.dataFormMainEdit.key, this.dataFormMainEdit)
+    async submitFormEditProductMain() {
+      await setDataFirebase('data-product', this.dataFormMainEdit.key, this.dataFormMainEdit)
       this.$refs['my-modal-edit-product-main'].hide()
     },
     deleteForm(item) {
@@ -343,8 +345,8 @@ export default {
       this.$refs['my-modal-edit-product-main'].show()
       this.dataFormMainEdit = {...item}
     },
-    deleteFormProductMain(item){
-      deleteDataFirebase('data-product',item.key)
+    async deleteFormProductMain(item) {
+      await deleteDataFirebase('data-product', item.key)
     },
     openModalAddProductMain(){
       this.$refs['my-modal-add-product-main'].show()
@@ -353,9 +355,10 @@ export default {
       this.selected = itemP.key
       this.$refs['my-modal-add-product-sub'].show()
     },
-    submitFormEditProductSub(){
-      setDataFirebase(`data-product/${this.selected}/product-sub`, this.dataFormSubEdit.key, this.dataFormSubEdit)
+    async submitFormEditProductSub() {
+      await setDataFirebase(`data-product/${this.dataItemParent.key}/product-sub`, this.dataFormSubEdit.key, this.dataFormSubEdit)
       this.$refs['my-modal-edit-product-sub'].hide()
+      await this.getDataProduct()
     }
 
   },

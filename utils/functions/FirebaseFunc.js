@@ -14,7 +14,7 @@ export const postDataFirebase = (params, postData) => {
 }
 
 export const setDataFirebase = (params, id, postData) => {
-  firebase.database().ref(`${params}/`+ id).set(postData, (error) => {
+  firebase.database().ref(`${params}/` + id).set(postData, (error) => {
     if (error) {
       console.log(error)
     } else {
