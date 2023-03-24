@@ -37,3 +37,7 @@ export function removeVietnameseTones(str) {
   str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
   return str;
 }
+
+export function convertLinkUtils(name){
+  return removeVietnameseTones(name).replaceAll('-', ' ').split(' ').filter(item => item).join('-').toLowerCase()
+}

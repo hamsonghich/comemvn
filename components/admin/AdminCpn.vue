@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container-fluid">
-      <div class="row">
+      <div class="">
         <div class="p--2" v-if="dataSelected === 'san-pham-chinh'">
             <ProductMainCpn />
         </div>

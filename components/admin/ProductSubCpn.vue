@@ -1,44 +1,43 @@
 <template>
-  <div>
+  <div class="p--2" style="border: 1px solid black">
     <h3>San pham phu</h3>
 
-    <b-button class="my--2 text--12" variant="success" v-b-modal.modal-1>Thêm sản phẩm phụ</b-button>
+    <b-button class="my--2 text--12" variant="success" @click="openModalAddProductMain" >Thêm sản phẩm chính</b-button>
 
-    <b-modal ref="my-modal" hide-footer id="modal-1" title="Form nhập thông tin sản phẩm phụ">
+    <!--    modal form add product SUB-->
+    <b-modal ref="my-modal-add-product-sub" hide-footer  title="Form nhập thông tin sản phẩm phụ">
       <div class="form">
-        <b-form-select
-          class="mb--3"
-          v-model="selected"
-          :options="options"
-        ></b-form-select>
         <b-form-input
           class="mb--3"
-          v-model="dataFormSub.name"
-          @keyup="convertNameToLink(dataFormSub.name, 'add')"
+          v-model="dataFormSubAdd.name"
+          @keyup.enter="submitFormAddProductSub(selected)"
+          @keyup="convertNameToLink(dataFormSubAdd.name, 'add','sub')"
           placeholder="Nhập tên sản phẩm phụ"
         ></b-form-input>
         <b-form-input
           class="mb--3"
-          disabled v-model="dataFormSub.link"
+          disabled v-model="dataFormSubAdd.link"
           placeholder="Nhập link sản phẩm phụ"
         ></b-form-input>
         <b-button class="mr--3" variant="outline-warning"
-                  @click="hideModal('add')"
+                  @click="hideModal('add', 'sub')"
         >Đóng tag
         </b-button>
         <b-button variant="outline-primary"
-                  @click="submitFormProductSub(selected)"
+                  @click="submitFormAddProductSub(selected)"
         >Gửi đi
         </b-button>
       </div>
     </b-modal>
 
-    <b-modal ref="my-modal-edit" hide-footer id="modal-2" title="Form chỉnh sửa thông tin sản phẩm">
+    <!--    modal form edit product sub-->
+    <b-modal ref="my-modal-edit-product-sub" hide-footer id="modal-2" title="Form chỉnh sửa thông tin sản phẩm">
       <div class="form">
         <b-form-input
           class="mb--3"
           v-model="dataFormSubEdit.name"
-          @keyup="convertNameToLink(dataFormSubEdit.name, 'edit')"
+          @keyup="convertNameToLink(dataFormSubEdit.name, 'edit', 'sub')"
+          @keyup.enter="submitFormEditProductSub"
           placeholder="Nhập tên sản phẩm chính"
         ></b-form-input>
         <b-form-input
@@ -47,7 +46,60 @@
           placeholder="Nhập link sản phẩm chính"
         ></b-form-input>
         <b-button variant="outline-warning"
-                  @click="hideModal('edit')"
+                  @click="hideModal('edit', 'sub')"
+        >Đóng tag
+        </b-button>
+        <b-button variant="outline-primary"
+                  @click="submitFormEditProductSub()"
+        >Gửi đi
+        </b-button>
+      </div>
+    </b-modal>
+
+
+    <!--    modal form add product main-->
+    <b-modal ref="my-modal-add-product-main" hide-footer id="modal-2" title="Form thêm thông tin sản phẩm chính">
+      <div class="form">
+        <b-form-input
+          class="mb--3"
+          v-model="dataFormMainAdd.name"
+          @keyup="convertNameToLink(dataFormMainAdd.name, 'add', 'main')"
+          @keyup.enter="submitFormAddProductMain"
+          placeholder="Nhập tên sản phẩm chính"
+        ></b-form-input>
+        <b-form-input
+          class="mb--3"
+          disabled v-model="dataFormMainAdd.link"
+          placeholder="Nhập link sản phẩm chính"
+        ></b-form-input>
+        <b-button variant="outline-warning"
+                  @click="hideModal('add', 'main')"
+        >Đóng tag
+        </b-button>
+        <b-button variant="outline-primary"
+                  @click="submitFormAddProductMain()"
+        >Gửi đi
+        </b-button>
+      </div>
+    </b-modal>
+
+    <!--    modal form edit product main-->
+    <b-modal ref="my-modal-edit-product-main" hide-footer id="modal-2" title="Form chỉnh sửa thông tin sản phẩm">
+      <div class="form">
+        <b-form-input
+          class="mb--3"
+          v-model="dataFormMainEdit.name"
+          @keyup="convertNameToLink(dataFormMainEdit.name, 'edit', 'main')"
+          @keyup.enter="submitFormEditProductMain"
+          placeholder="Nhập tên sản phẩm chính"
+        ></b-form-input>
+        <b-form-input
+          class="mb--3"
+          disabled v-model="dataFormMainEdit.link"
+          placeholder="Nhập link sản phẩm chính"
+        ></b-form-input>
+        <b-button variant="outline-warning"
+                  @click="hideModal('edit', 'main')"
         >Đóng tag
         </b-button>
         <b-button variant="outline-primary"
@@ -59,8 +111,10 @@
 
 
 
+
+
     <div>
-      <table>
+      <table v-if="false">
         <thead>
         <tr>
           <th>
@@ -78,15 +132,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in dataProduct">
+        <tr v-for="item in this.productSubAll">
           <td>
-            {{item.name}}
+            {{ item.name }}
           </td>
           <td>
-            {{item.link}}
+            {{ item.link }}
           </td>
           <td>
-            {{item.key}}
+            {{ item.key }}
           </td>
           <td class="text-center">
             <button @click="editForm(item)" class="mx--1"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -96,18 +150,81 @@
         </tbody>
       </table>
     </div>
+
+
+    <div>
+      <div class="row">
+        <div class="col-3">
+          Tên sản phẩm chính
+        </div>
+        <div class="col-3">
+          Link sản phẩm chính
+        </div>
+        <div class="col-3">
+          Key
+        </div>
+        <div class="col-3">
+          Tùy chọn
+        </div>
+      </div>
+      <div  v-for="(itemP, indexP) in dataProduct" class="row row-table-main-product"
+           :key="indexP">
+        <div v-b-toggle="'collapse-' + indexP" class="col-3 font--medium">
+          {{ itemP.name }}
+        </div>
+        <div v-b-toggle="'collapse-' + indexP" class="col-3 font--medium">
+          {{ itemP.link }}
+        </div>
+        <div v-b-toggle="'collapse-' + indexP" class="col-3 font--medium">
+          {{ itemP.key }}
+        </div>
+        <div class="col-3 font--medium">
+          <button @click="addFormProductSub(itemP)" class="mx--1"><i class="fa-solid fa-circle-plus"></i></button>
+          <button @click="editFormProductMain(itemP)" class="mx--1"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button @click="deleteFormProductMain(itemP)" class="mx--1"><i class="fa-solid fa-trash"></i></button>
+        </div>
+
+
+        <b-collapse class=" w-100 mt-2" :id="`collapse-`+indexP">
+          <b-card class="contain-product-sub w-100">
+            <div v-if="_dataProductSubHandles[itemP.key]">
+              <div v-for="(itemC, indexC) in Object.values(_dataProductSubHandles[itemP.key])"
+                   class="row row-table-sub-product"
+                   :key="indexC">
+                <div class="col-3">
+                  {{ itemC.name }}
+                </div>
+                <div class="col-3">
+                  {{ itemC.link }}
+                </div>
+                <div class="col-3">
+                  {{ itemC.key }}
+                </div>
+                <div class="col-3">
+                  <button @click="editFormProductSub(itemC)" class="mx--1"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button @click="deleteFormProductSub(itemC)" class="mx--1"><i class="fa-solid fa-trash"></i></button>
+                </div>
+              </div>
+            </div>
+
+          </b-card>
+        </b-collapse>
+
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters, mapState} from "vuex";
-import {removeVietnameseTones} from '~/utils/functions/formatMoney'
+import {mapActions, mapGetters, mapMutations, mapState} from "vuex";
+import {removeVietnameseTones, convertLinkUtils} from '~/utils/functions/formatMoney'
 import {postDataFirebase, setDataFirebase, deleteDataFirebase} from '~/utils/functions/FirebaseFunc'
 
 export default {
   data() {
     return {
-      dataFormSub: {
+      dataFormSubAdd: {
         name: "",
         link: "",
       },
@@ -116,37 +233,37 @@ export default {
         link: "",
         key: ""
       },
+      dataFormMainAdd:{
+        name: "",
+        link: "",
+      },
+      dataFormMainEdit: {
+        name: "",
+        link: "",
+        key: ""
+      },
       selected: null,
       options: [],
-      productSubAll: []
+      productSubAll: {},
+      productSubAllEx: []
     }
   },
   async created() {
     await this.getDataProduct()
-    console.log('getDataProduct', this.dataProduct)
-    this.options = this.dataProduct.map(item => {
-      return {value: item.key, text: item.name}
-    })
-    for (let i = 0; i <  this.dataProduct.length; i++) {
-      console.log('this.dataProduct[i].key', this.dataProduct[i].key)
-      await this.getDataProductSub(this.dataProduct[i].key)
-      console.log(this.dataProductSub)
-      this.productSubAll.push(this.dataProductSub)
-
-    }
-    this.productSubAll.flat()
-    console.log('productSubAll', this.productSubAll)
-
   },
   computed: {
     ...mapState('product', [
       'dataProduct'
     ]),
     ...mapState('productSub', [
-      'dataProductSub'
+      'dataProductSub',
+      'dataProductSubHandles'
     ]),
     ...mapGetters('productSub', [
       '_dataProductSub'
+    ]),
+    ...mapGetters('productSub', [
+      '_dataProductSubHandles'
     ]),
   },
   methods: {
@@ -154,63 +271,156 @@ export default {
       'getDataProduct'
     ]),
     ...mapActions('productSub', [
-      'getDataProductSub'
+      'getDataProductSub',
+      'getDataProductSubHandles'
     ]),
-    convertNameToLink(name, value) {
-      if(value === 'add'){
-        this.dataFormSub.link = removeVietnameseTones(name).replaceAll(' ', '-').toLowerCase()
-      }else if(value === 'edit'){
-        this.dataFormSubEdit.link = removeVietnameseTones(name).replaceAll(' ', '-').toLowerCase()
+    convertNameToLink(name, value, option) {
+      if (value === 'add' && option === 'sub') {
+        this.dataFormSubAdd.link = convertLinkUtils(name)
+      } else if (value === 'edit' && option === 'sub') {
+        this.dataFormSubEdit.link = convertLinkUtils(name)
+      } else if (value === 'edit' && option === 'main') {
+        this.dataFormMainEdit.link = convertLinkUtils(name)
+      }else if (value === 'add' && option === 'main') {
+          this.dataFormMainAdd.link = convertLinkUtils(name)
       }
 
     },
-    async submitFormProductSub(key) {
-      await postDataFirebase(`data-product/${key}/product-sub/`, this.dataFormSub)
-      this.hideModal('add')
+    async submitFormAddProductSub(key) {
+      await postDataFirebase(`data-product/${key}/product-sub/`, this.dataFormSubAdd)
+      this.hideModal('add', 'sub')
     },
-    hideModal(value) {
-      if(value === 'add'){
-        this.$refs['my-modal'].hide()
-      }else if(value === 'edit') {
-        this.$refs['my-modal-edit'].hide()
+    hideModal(value, option) {
+      if (value === 'add' && option === 'sub') {
+        this.$refs['my-modal-add-product-sub'].hide();
+        this.dataFormSubAdd = {
+          name: "",
+          link: ""
+        }
+      }
+      else if (value === 'edit' && option === 'sub') {
+        this.$refs['my-modal-edit-product-sub'].hide()
+        this.dataFormSubEdit = {
+          name: "",
+          link: "",
+          key: ""
+        }
+      }
+      else if (value === 'add' && option === 'main') {
+        this.$refs['my-modal-add-product-main'].hide()
+        this.dataFormSubEdit = {
+          name: "",
+          link: "",
+          key: ""
+        }
+      }
+      else if (value === 'edit' && option === 'main') {
+        this.$refs['my-modal-edit-product-main'].hide()
+        this.dataFormSubEdit = {
+          name: "",
+          link: "",
+          key: ""
+        }
       }
     },
-    editForm(item){
-      this.$refs['my-modal-edit'].show()
+    editFormProductSub(item) {
+      this.$refs['my-modal-edit-product-sub'].show()
       this.dataFormSubEdit = {...item}
 
     },
-    submitFormEditProductMain(){
-      setDataFirebase('data-product', this.dataFormSubEdit.key, this.dataFormSubEdit)
-      this.$refs['my-modal-edit'].hide()
+    async submitFormAddProductMain() {
+      await postDataFirebase('data-product', this.dataFormMainAdd)
+      this.hideModal('add', 'main')
     },
-    deleteForm(item){
+    submitFormEditProductMain() {
+      setDataFirebase('data-product', this.dataFormMainEdit.key, this.dataFormMainEdit)
+      this.$refs['my-modal-edit-product-main'].hide()
+    },
+    deleteForm(item) {
+      deleteDataFirebase('data-product', item.key)
+    },
+    editFormProductMain(item){
+      this.$refs['my-modal-edit-product-main'].show()
+      this.dataFormMainEdit = {...item}
+    },
+    deleteFormProductMain(item){
       deleteDataFirebase('data-product',item.key)
+    },
+    openModalAddProductMain(){
+      this.$refs['my-modal-add-product-main'].show()
+    },
+    addFormProductSub(itemP){
+      this.selected = itemP.key
+      this.$refs['my-modal-add-product-sub'].show()
+    },
+    submitFormEditProductSub(){
+      setDataFirebase(`data-product/${this.selected}/product-sub`, this.dataFormSubEdit.key, this.dataFormSubEdit)
+      this.$refs['my-modal-edit-product-sub'].hide()
     }
-  },
-  watch:{
 
+  },
+  watch: {
+    'dataProduct': async function () {
+      this.options = this.dataProduct.map(item => {
+        return {value: item.key, text: item.name}
+      })
+      for (let i = 0; i < this.dataProduct.length; i++) {
+        await this.getDataProductSub(this.dataProduct[i].key)
+        let temp = null
+        if (this.dataProductSub) {
+          temp = this.dataProductSub
+          this.productSubAll[this.dataProduct[i].key] = {...temp}
+        }
+      }
+      await this.getDataProductSubHandles(this.productSubAll)
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-table{
+table {
   width: 100%;
   border: 1px solid #ddd;;
   border-collapse: collapse;
-  tr:nth-child(even){background-color: #f2f2f2;}
-  tr{
-    th{
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr {
+    th {
       border: 1px solid #ddd;;
       padding: 10px;
       background-color: var(--color-12);
     }
-    td{
+
+    td {
       border: 1px solid #ddd;;
       padding: 10px;
     }
   }
+}
+.row-table-main-product.not-collapsed{
+  background-color: rgba(98, 108, 19, 0.82) !important;
+}
+.row-table-main-product:nth-child(even) {
+  background-color: #dddddd;
+}
+::v-deep .contain-product-sub{
+  background-color: rgba(151, 166, 83, 0.43);
+  border-radius: 10px;
+}
+.row-table-sub-product{
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+  border-radius: 10px;
+}
+.row-table-sub-product:nth-child(even) {
+  background-color: #dddddd;
+}
+.row-table-sub-product:nth-child(odd) {
+  background-color: #dddddd;
 }
 </style>
 

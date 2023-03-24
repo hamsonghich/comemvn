@@ -2,16 +2,21 @@ import firebase from "~/plugins/firebase";
 
 export const state = () => ({
   dataProductSub: [],
+  dataProductSubHandles: {},
 })
 
 export const getters = {
-  _dataProductSub: _state => _state.dataProductSub
+  _dataProductSub: _state => _state.dataProductSub,
+  _dataProductSubHandles: _state => _state.dataProductSubHandles,
 }
 
 export const mutations = {
   SET_DATA_PRODUCT_SUB(state, _payload) {
     state.dataProductSub = _payload
   },
+  SET_DATA_PRODUCT_SUB_HANDLES(state, _payload) {
+    state.dataProductSubHandles = _payload
+  }
 }
 
 export const actions = {
@@ -19,12 +24,15 @@ export const actions = {
     try {
       firebase.database().ref(`data-product/${id}/product-sub`)
         .on('value', (snapshot) => {
-          commit('SET_DATA_PRODUCT_SUB', Object.values(snapshot.val()))
+          console.log('value22', snapshot.val())
+          commit('SET_DATA_PRODUCT_SUB', snapshot.val())
         })
     } catch (error) {
       console.log(error);
     }
+  },
+  getDataProductSubHandles({commit}, _payload){
+    commit('SET_DATA_PRODUCT_SUB_HANDLES', _payload)
   }
-
 
 }

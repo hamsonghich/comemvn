@@ -1,8 +1,12 @@
 <template>
   <div class="container-fluid">
-    <div class="row d-flex">
+    <div class="row">
+      <div style="width: 160px">
         <SidebarAdminCpn />
-        <Nuxt />
+      </div>
+       <div style="width: calc(100% - 160px)">
+         <Nuxt />
+       </div>
     </div>
   </div>
 </template>
