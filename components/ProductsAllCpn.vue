@@ -188,36 +188,7 @@ export default {
       this.currentPage = currentPage
     }
   },
-  watch: {
-    'dataProductFirebase': function () {
-      this.dataProductList = this.chunkArray(this.dataProductFirebase?.map(item => {
-        return item?.list?.map(item => item?.products)
-      }).flat(2).filter(item => {
-        if (item) {
-          return item
-        }
-      }).sort((a, b) => {
-        let nameA = a['tag-description']?.toUpperCase().split('||')[0];
-        let nameB = b['tag-description']?.toUpperCase().split('||')[0];
-        if (nameA === undefined) {
-          nameA = 'YYYY'
-        } else if (nameA.includes('NEW')) {
-          nameA = 'AA'
-        }
-        if (nameB === undefined) {
-          nameB = 'YYYY'
-        } else if (nameB.includes('NEW')) {
-          nameB = 'AA'
-        }
-        return nameA.localeCompare(nameB)
-      }), this.perPage)
-      this.rows = this.dataProductList.length * CONSTANTS.PAGE_ALL_PRODUCT.perPage;
-    },
 
-    'currentPage': function () {
-      this.dataProductListPagination = this.dataProductList[this.currentPage - 1]
-    }
-  }
 }
 </script>
 

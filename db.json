@@ -2105,6 +2105,53 @@
       "Hà Nội, TP.HCM: 1-2 ngày",
       "Các tỉnh còn lại: 2-5 ngày"
     ]
-  }
+  },
+  "admin-side-bar": [
+    {
+      "name": "Tài khoản",
+      "link": "tai-khoan",
+      "icon": "fa-solid fa-file-invoice"
+    },
+    {
+      "name": "Trang chủ",
+      "link": "trang-chu",
+      "icon": "fa-solid fa-house"
+    },
+    {
+      "name": "Giới thiệu",
+      "link": "gioi-thieu",
+      "icon": "fa-solid fa-book"
+    },
+    {
+      "name": "Tin tức",
+      "link": "tin-tuc",
+      "icon": "fa-solid fa-newpapers"
+    },
+    {
+      "name": "Liên hệ",
+      "link": "lien-he",
+      "icon": "fa-solid fa-address-book"
+    },
+    {
+      "name": "Sản phẩm chính",
+      "link": "san-pham-chinh",
+      "icon": "fa-duotone fa-clipboard-check"
+    },
+    {
+      "name": "Sản phẩm phụ",
+      "link": "san-pham-phu",
+      "icon": "fa-duotone fa-clipboard-check"
+    },
+    {
+      "name": "Sản phẩm chi tiết",
+      "link": "san-pham-chi-tiet",
+      "icon": "fa-duotone fa-clipboard-check"
+    },
+    {
+      "name": "Đơn hàng",
+      "link": "don-hang",
+      "icon": "fa-solid fa-cart-shopping"
+    }
+  ]
 }
 

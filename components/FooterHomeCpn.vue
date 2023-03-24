@@ -296,11 +296,6 @@ export default {
     fnEmitValueInputEmail(email) {
       this.valueEmail = email
     }
-  },
-  watch:{
-    'dataFooterFirebase': async function () {
-      await this.dataFooterFirebaseActions()
-    }
   }
 }
 

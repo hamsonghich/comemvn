@@ -41,6 +41,13 @@ export const actions = {
         .on('value', (snapshot) => {
           commit('SET_DATA_PRODUCT_FIREBASE', snapshot.val())
         })
+      // const response = await getDataFirebase('data-all')
+      // if(response){
+      //   commit('SET_DATA_PRODUCT_FIREBASE', response)
+      // }
+
+
+
     } catch (error) {
       console.log(error);
     }

@@ -158,32 +158,7 @@ export default {
       }
     }
   },
-  watch: {
-    'dataProductFirebase': function () {
-      this.dataProductDetails = this.dataProductFirebase.filter(item => {
-        return item.link === this.$route.params.product
-      })[0];
-      this.dataProductList = this.dataProductFirebase.filter(item => {
-        return item.link === this.$route.params.product
-      })[0]?.list?.map(item => item?.products).flat().filter(item => item !== undefined).sort((a, b) => {
-        let nameA = a['tag-description']?.toUpperCase().split('||')[0];
-        let nameB = b['tag-description']?.toUpperCase().split('||')[0];
-        if (nameA === undefined) {
-          nameA = 'YYYY'
-        } else if (nameA.includes('NEW')) {
-          nameA = 'AAAA'
-        }
-        if (nameB === undefined) {
-          nameB = 'YYYY'
-        } else if (nameB.includes('NEW')) {
-          nameB = 'AAAA'
-        }
-        return nameA.localeCompare(nameB)
-      })
-      console.log('data', this.dataProductList)
 
-    }
-  }
 }
 </script>
 

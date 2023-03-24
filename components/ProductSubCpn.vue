@@ -167,40 +167,6 @@ export default {
 
       }
     }
-  },
-  watch: {
-    'dataProductFirebase': function () {
-      let parent1, parent2;
-      this.dataProductList = this.dataProductFirebase?.map(item => {
-        parent1 = {name: item.name, link: item.link}
-        return item?.list?.map(item => {
-          parent2 = {name: item?.name, link: item?.link}
-          return {...item, parent1: parent1}?.products?.map(item => {
-            return {...item, parent2: parent2, parent1: parent1}
-          })
-        })
-      }).flat(2).filter(itemC => itemC !== undefined).filter(item => {
-        return item?.parent2?.link === this.$route.params.productSub
-      }).sort((a, b) => {
-        let nameA = a['tag-description']?.toUpperCase().split('||')[0];
-        let nameB = b['tag-description']?.toUpperCase().split('||')[0];
-        if (nameA === undefined) {
-          nameA = 'YYYY'
-        } else if (nameA.includes('NEW')) {
-          nameA = 'AAAA'
-        }
-        if (nameB === undefined) {
-          nameB = 'YYYY'
-        } else if (nameB.includes('NEW')) {
-          nameB = 'AAAA'
-        }
-        return nameA.localeCompare(nameB)
-      })
-      console.log('dataProductList', this.dataProductList)
-
-
-
-    }
   }
 }
 </script>
