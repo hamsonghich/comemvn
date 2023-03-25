@@ -187,9 +187,9 @@
 
         <b-collapse class=" w-100 mt-2" :id="`collapse-`+indexP">
           <b-card class="contain-product-sub w-100">
-            <div v-if="dataProductSubHandles[itemP.key]">
-              {{dataProductSubHandles['-NRGCJeZoE_Si70TUDp0']}}
-              <div v-for="(itemC, indexC) in Object.values(dataProductSubHandles[itemP.key])"
+            <div v-if="_dataProductSubHandles[itemP.key]">
+              {{_dataProductSubHandles['-NRGCJeZoE_Si70TUDp0']}}
+              <div v-for="(itemC, indexC) in Object.values(_dataProductSubHandles[itemP.key])"
                    class="row row-table-sub-product"
                    :key="indexC">
                 <div class="col-3">
