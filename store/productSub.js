@@ -15,7 +15,6 @@ export const mutations = {
     state.dataProductSub = _payload
   },
   SET_DATA_PRODUCT_SUB_HANDLES(state, _payload) {
-    console.log('_payload', _payload)
     state.dataProductSubHandles = _payload
   }
 }
@@ -25,7 +24,6 @@ export const actions = {
     try {
       firebase.database().ref(`data-product/${id}/product-sub`)
         .on('value', (snapshot) => {
-          console.log('value22', snapshot.val())
           commit('SET_DATA_PRODUCT_SUB', snapshot.val())
         })
     } catch (error) {

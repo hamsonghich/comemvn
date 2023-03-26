@@ -2125,7 +2125,7 @@
     {
       "name": "Tin tức",
       "link": "tin-tuc",
-      "icon": "fa-solid fa-newpapers"
+      "icon": "fa-light fa-newspaper"
     },
     {
       "name": "Liên hệ",

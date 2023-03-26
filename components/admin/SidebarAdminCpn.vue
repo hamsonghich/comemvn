@@ -52,8 +52,14 @@ export default {
   .row{
     ul{
       li{
-        border-bottom: 1px solid var(--color-1);
+        border-bottom: 1px solid var(--color-admin-3);
         cursor: pointer;
+        color: var(--color-admin-3);
+        font-size: 12px;
+        i{
+          color: var(--color-admin-3);
+          margin-right: 10px;
+        }
       }
     }
   }

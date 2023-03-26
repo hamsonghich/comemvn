@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid _admin" style="background: var(--color-admin-1) !important;">
     <div class="row">
       <div style="width: 160px">
         <SidebarAdminCpn />
@@ -20,3 +20,4 @@ export default {
   }
 }
 </script>
+
