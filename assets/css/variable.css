@@ -52,7 +52,6 @@
 * {
   font-family: font-primary-regular, sans-serif;
   font-size: 14px;
-  color: var(--color-15);
 }
 @media only screen and (max-width: 912px) {
   * {

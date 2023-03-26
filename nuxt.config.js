@@ -62,6 +62,7 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/style-resources',
     '@nuxtjs/vuetify',
+    'vue2-editor/nuxt'
 
   ],
 

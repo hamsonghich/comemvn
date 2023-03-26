@@ -2,7 +2,7 @@ import firebase from "~/plugins/firebase";
 
 export const state = () => ({
   dataProductDetails: [],
-  dataProductDetailsHandles: {},
+  dataProductDetailsHandles: Array,
 })
 
 export const getters = {

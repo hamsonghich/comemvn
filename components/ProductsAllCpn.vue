@@ -21,7 +21,7 @@
       <div class="d-flex w-100">
         <b-container>
           <b-row>
-            <b-col style="padding: 0.35rem" v-for="(item, index) in dataProductListPagination" cols="6" sm="6" md="4"
+            <b-col style="padding: 0.35rem" v-for="(item, index) in dataFbFlat" cols="6" sm="6" md="4"
                    lg="3"
                    xl="3" :key="index">
               <CardProductDetail
@@ -32,6 +32,8 @@
         </b-container>
       </div>
     </div>
+
+
 
     <PaginationCpn
       :rows="rows"
@@ -49,6 +51,7 @@ import SelectCpn from "~/components/libs/SelectCpn.vue";
 import CardProductDetail from "~/components/libs/CardProductDetail.vue"
 import * as CONSTANTS from "~/utils/Constants"
 import PaginationCpn from '~/components/libs/PaginigationCpn.vue'
+import {convertImgFB, handelGetDataProduct} from "@/utils/functions/formatMoney";
 
 export default {
 
@@ -56,6 +59,8 @@ export default {
   components: {SelectCpn, CardProductDetail, PaginationCpn},
   data() {
     return {
+      dataFbFlat:  [],
+      imgsFB: [],
       perPage: CONSTANTS.PAGE_ALL_PRODUCT.perPage, // 12
       currentPage: 1,
       rows: 10,
@@ -72,6 +77,10 @@ export default {
     }
   },
   async created() {
+    await this.getDataProductFB();
+
+
+
     await this.getDataProductFirebase();
     this.dataProductList = this.chunkArray(this.dataProductFirebase?.map(item => {
       return item?.list?.map(item => item?.products)
@@ -101,6 +110,7 @@ export default {
       {name: 'Tất cả Sản phẩm', link: 'product'}
     ])
 
+
   },
   mounted() {
 
@@ -110,9 +120,15 @@ export default {
       'dataProduct',
       'dataProductFirebase'
     ]),
+    ...mapState('product', {
+      dataProductFB: 'dataProduct'
+    }),
     ...mapGetters('home', [
       'getDataAll',
       'getDataAllFirebase'
+    ]),
+    ...mapGetters('product', [
+      '_dataProduct',
     ])
   },
   methods: {
@@ -123,6 +139,9 @@ export default {
     ...mapActions('tree', [
       'setDataTree'
     ]),
+    ...mapActions('product', {
+       getDataProductFB :'getDataProduct'
+    }),
     chooseSelected(value) {
       switch (value) {
         case 'newest':
@@ -188,6 +207,15 @@ export default {
       this.currentPage = currentPage
     }
   },
+  watch:{
+    dataProductFB: async function () {
+      await this.getDataProductFB();
+      this.dataFbFlat = handelGetDataProduct(this.dataProductFB)
+      this.dataFbFlat = [...this.dataFbFlat].map(item => {
+        return {...item, listImg: convertImgFB(item.listImg)}
+      })
+    }
+  }
 
 }
 </script>

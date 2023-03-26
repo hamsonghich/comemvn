@@ -41,3 +41,46 @@ export function removeVietnameseTones(str) {
 export function convertLinkUtils(name){
   return removeVietnameseTones(name).replaceAll('-', ' ').split(' ').filter(item => item).join('-').toLowerCase()
 }
+
+export function chunkArray(myArray, chunk_size) {
+  let results = [];
+  while (myArray.length) {
+    results.push(myArray.splice(0, chunk_size));
+  }
+  return results;
+}
+
+export function handelGetDataProduct(array) {
+  let res;
+  res = array.map(item => {
+    if (item?.['product-sub']) {
+      return Object.values(item?.['product-sub'])
+    }
+
+  }).flat(1).filter(item => item).map(item => {
+    if (item?.['product-details']) {
+      return Object.values(item?.['product-details'])
+    }
+
+  }).flat(1).filter(item => item)
+
+  return res
+}
+
+
+export function convertImgFB(images) {
+  console.log(images)
+  if(images && images.length !== 0){
+    return images?.replaceAll('<p>', '')?.replaceAll('</p>', '')?.split('<img src').splice(1)?.map(item => {
+      return '<img src'+item
+    })
+  }else{
+    return images
+  }
+}
+export function convertImgFBCard(img){
+  console.log(img)
+  if(img){
+    return img.slice(0,-2).slice(10)
+  }
+}

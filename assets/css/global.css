@@ -5011,4 +5011,11 @@ ul, li{
 .color-white{
   color: white;
 }
-
+.line-one{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+::v-deep .ql-editor > * {
+  color: var(--color-admin-3) !important
+}

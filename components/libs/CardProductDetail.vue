@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper-card">
+    {{infoProduct?.['listImg']}}
     <nuxt-link class="text-deco-none" :to="/product-details/+ infoProduct.link">
       <b-card
         title=""
-        :img-src="infoProduct.images[0].link"
-        :img-alt="infoProduct.images[0].name"
+        :img-src="convertCardImg(infoProduct?.['listImg']?.[0])"
         img-top
         class="tag-img px--3 py--2"
       >
@@ -51,6 +51,8 @@
 
 <script>
 
+import {convertImgFBCard} from "@/utils/functions/formatMoney";
+
 export default {
   props: {
     infoProduct: {}
@@ -71,6 +73,9 @@ export default {
     },
     fnConvertPrice(oldPrice) {
       return Math.floor(oldPrice / 1000) + '.000';
+    },
+    convertCardImg(val){
+     return convertImgFBCard(val)
     }
   },
 }

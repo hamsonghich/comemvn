@@ -1,7 +1,7 @@
 <template>
   <div>
     {{this.$route.params.product}}
-    layout product
+    layout product2
     <ProductsAllCpn />
 
   </div>
